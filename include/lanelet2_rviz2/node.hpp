@@ -8,6 +8,8 @@
 //   <tag k="ele" v="-1.6"/>
 // </node>
 
+namespace osm {
+
 /// @brief Class to store a single lanelet2 OSM node
 class Node {
 public:
@@ -27,6 +29,9 @@ public:
     double local_y() const { return local_y_; }
     double ele() const { return ele_; }
 
+    void set_local_x(double local_x) { local_x_ = local_x; }
+    void set_local_y(double local_y) { local_y_ = local_y; }
+
 private:
     int id_;
     double lat_;
@@ -35,6 +40,7 @@ private:
     double local_y_;
     double ele_;
 };
+}  // namespace osm
 
 
 

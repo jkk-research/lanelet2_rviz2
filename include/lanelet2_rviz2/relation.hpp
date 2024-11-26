@@ -15,6 +15,8 @@
 //     <tag k="one_way" v="yes"/>
 //   </relation>
 
+namespace osm {
+
 /// @brief Class to store a single lanelet2 OSM relation, which is a part of a street
 class Relation {
 public:
@@ -39,8 +41,8 @@ public:
     
 private:
     int id_;
-    Way* left_;
-    Way* right_;
+    osm::Way* left_;
+    osm::Way* right_;
 
     std::string type_;
     std::string subtype_;
@@ -49,5 +51,6 @@ private:
     bool one_way_;   
 
 };
+}; // namespace osm
 
 #endif  // LANELET2_RVIZ2__RELATION_HPP

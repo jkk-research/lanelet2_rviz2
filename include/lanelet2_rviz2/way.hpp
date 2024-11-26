@@ -12,6 +12,8 @@
 //     <nd ref="11372"/>
 //   </way>
 
+namespace osm {
+
 /// @brief Class to store a single lanelet2 OSM way, which is a collection of nodes
 class Way {
 public:
@@ -25,13 +27,15 @@ public:
 
     int id() const { return id_; }
 
-    void add_node(Node* node) { nodes_.push_back(node); }
+    void add_node(osm::Node* node) { nodes_.push_back(node); }
 
-    const std::vector<Node*>& nodes() const { return nodes_; }
+    const std::vector<osm::Node*>& nodes() const { return nodes_; }
 
 private:
     int id_;
-    std::vector<Node*> nodes_;
+    std::vector<osm::Node*> nodes_;
 };
+
+}; // namespace osm
 
 #endif  // LANELET2_RVIZ2__WAY_HPP

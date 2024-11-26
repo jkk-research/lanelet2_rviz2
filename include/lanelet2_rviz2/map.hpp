@@ -3,6 +3,9 @@
 #include <vector>
 #include <string>
 #include "node.hpp"
+#include "relation.hpp"
+
+namespace osm {
 
 class Map {
 public:
@@ -20,7 +23,8 @@ public:
     int metainfo_format_version;
     std::string metainfo_map_version;
 
-    std::vector<Relation*> relations;
+    std::vector<osm::Relation*> relations;
 
 }; 
+}; // namespace osm
 #endif // LANELET2_RVIZ2__MAP_HPP

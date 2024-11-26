@@ -7,15 +7,33 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(visualization_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+set(INCLUDE_DIRS 
+  include 
+  ${ament_cmake_INCLUDE_DIRS} 
+  ${rclcpp_INCLUDE_DIRS}
+  ${visualization_msgs_INCLUDE_DIRS}
+)
+include_directories(${INCLUDE_DIRS})
+
+set(ament_dependencies
+  rclcpp
+  visualization_msgs
+)
+
 add_executable(visualize_osm src/visualize_osm.cpp)
-target_include_directories(visualize_osm PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_compile_features(visualize_osm PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+# target_include_directories(visualize_osm PUBLIC
+#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#   $<INSTALL_INTERFACE:include>)
+# target_compile_features(visualize_osm PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+ament_target_dependencies(visualize_osm ${ament_dependencies})
+target_compile_features(visualize_osm PUBLIC cxx_std_17)
 
 install(TARGETS visualize_osm
   DESTINATION lib/${PROJECT_NAME})
