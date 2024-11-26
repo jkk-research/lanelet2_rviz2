@@ -35,7 +35,7 @@ source install/setup.bash
 Launch the `OSMVisualizer` node:
 
 ```bash
-ros2 run lanelet2_rviz2 osm_visualizer
+ros2 run lanelet2_rviz2 visualize_osm 
 ```
 
 ### 3. Publish a Filename
