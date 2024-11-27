@@ -35,6 +35,11 @@ add_executable(visualize_osm src/visualize_osm.cpp)
 ament_target_dependencies(visualize_osm ${ament_dependencies})
 target_compile_features(visualize_osm PUBLIC cxx_std_17)
 
+install(DIRECTORY 
+  launch
+  etc
+  DESTINATION share/${PROJECT_NAME})
+
 install(TARGETS visualize_osm
   DESTINATION lib/${PROJECT_NAME})
 

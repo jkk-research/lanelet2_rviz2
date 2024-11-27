@@ -10,12 +10,19 @@
 #include <vector>
 #include <numeric>
 
+using namespace std::chrono_literals;
+using std::placeholders::_1;
+
 class OSMVisualizer : public rclcpp::Node {
 public:
-    OSMVisualizer()
-        : Node("osm_visualizer"),
-          marker_array_ways_pub_(this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_markers", 10)),
-          marker_array_relations_pub_(this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_relations", 10)) {
+    OSMVisualizer() : Node("osm_visualizer")
+    {
+        this->declare_parameter<double>("line_width", 0.8);
+        this->declare_parameter<std::string>("frame_id", "map_gyor_0");
+        this->get_parameter("line_width", line_width_);
+        this->get_parameter("frame_id", frame_id_);
+        // marker_array_ways_pub_(this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_markers", 10));
+        marker_array_relations_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_relations", 10);
         // Subscriber to receive the filename
         filename_sub_ = this->create_subscription<std_msgs::msg::String>(
             "osm_filename",
@@ -26,8 +33,9 @@ public:
         timer_ = this->create_wall_timer(
             std::chrono::seconds(1),
             std::bind(&OSMVisualizer::publishMarkers, this));
+        RCLCPP_INFO(this->get_logger(), "OSM Visualizer node started.");
     }
-
+private:
     std::map<int, osm::Node*> nodes_;
     std::map<int, osm::Way*> ways_;
     std::map<int, osm::Relation*> relations_;
@@ -38,6 +46,8 @@ public:
     double center_x_ = 0.0; // Map center X coordinate
     double center_y_ = 0.0; // Map center Y coordinate
     bool data_loaded_ = false; // Flag to indicate if data has been loaded
+    double line_width_ = 0.8; // Line width for visualization
+    std::string frame_id_ = "map_gyor_0"; // Frame ID for visualization
 
     void onFilenameReceived(const std_msgs::msg::String::SharedPtr msg) {
         const std::string filename = msg->data;
@@ -46,9 +56,9 @@ public:
         // Parse the file
         try {
             parseOSMFile(filename.c_str());
-            centerCoordinates();
+            //centerCoordinates(); // TODO: parameterize this
+            //RCLCPP_INFO(this->get_logger(), "OSM file parsed and map centered successfully.");
             data_loaded_ = true; // Indicate data is ready to be visualized
-            RCLCPP_INFO(this->get_logger(), "OSM file parsed and map centered successfully.");
         } catch (const std::exception& e) {
             RCLCPP_ERROR(this->get_logger(), "Failed to parse OSM file: %s", e.what());
         }
@@ -216,21 +226,21 @@ public:
 
             // Marker for left way
             visualization_msgs::msg::Marker left_marker;
-            left_marker.header.frame_id = "map";
+            left_marker.header.frame_id = frame_id_;
             left_marker.header.stamp = this->now();
             left_marker.ns = "osm_relations_left";
             left_marker.id = marker_id++;
             left_marker.type = visualization_msgs::msg::Marker::LINE_STRIP;
             left_marker.action = visualization_msgs::msg::Marker::ADD;
 
-            // Set color for left way (red)
-            left_marker.color.r = 1.0;
-            left_marker.color.g = 0.0;
-            left_marker.color.b = 0.0;
+            // Set color for left way (lime) md_lime_300 #DCE775 0.863, 0.902, 0.459 https://github.com/jkk-research/colors
+            left_marker.color.r = 0.863;
+            left_marker.color.g = 0.902;
+            left_marker.color.b = 0.459;
             left_marker.color.a = 1.0;
 
             // Line width
-            left_marker.scale.x = 0.1;
+            left_marker.scale.x = line_width_;
 
             // Add points from left way nodes
             for (const osm::Node* node : relation.left()->nodes()) {
@@ -245,21 +255,21 @@ public:
 
             // Marker for right way
             visualization_msgs::msg::Marker right_marker;
-            right_marker.header.frame_id = "map";
+            right_marker.header.frame_id = frame_id_;
             right_marker.header.stamp = this->now();
             right_marker.ns = "osm_relations_right";
             right_marker.id = marker_id++;
             right_marker.type = visualization_msgs::msg::Marker::LINE_STRIP;
             right_marker.action = visualization_msgs::msg::Marker::ADD;
 
-            // Set color for right way (blue)
-            right_marker.color.r = 0.0;
-            right_marker.color.g = 0.0;
-            right_marker.color.b = 1.0;
+            // Set color for right way (red) md_red_300 #E57373 0.898, 0.451, 0.451 https://github.com/jkk-research/colors 
+            right_marker.color.r = 0.898;
+            right_marker.color.g = 0.451;
+            right_marker.color.b = 0.451;
             right_marker.color.a = 1.0;
 
             // Line width
-            right_marker.scale.x = 0.1;
+            right_marker.scale.x = line_width_;
 
             // Add points from right way nodes
             for (const osm::Node* node : relation.right()->nodes()) {
@@ -275,6 +285,7 @@ public:
 
         // marker_array_ways_pub_->publish(marker_array_ways);
         marker_array_relations_pub_->publish(marker_array_relations);
+        RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Published on frame: " << frame_id_);
     }
 
     void clearData() {
@@ -288,9 +299,9 @@ public:
         relations_.clear();
     }
 
-    ~OSMVisualizer() {
-        clearData();
-    }
+    // ~OSMVisualizer() {
+    //     clearData();
+    // }
 };
 
 int main(int argc, char** argv) {
