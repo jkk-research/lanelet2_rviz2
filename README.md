@@ -9,8 +9,8 @@
 - **Dynamic File Loading**: Reads the `.osm` filename from a ROS 2 topic (`/osm_filename`).
 - **Visualization in RViz2**:
   - Displays map relations as colored line strips.
-  - Left ways are shown in **red**.
-  - Right ways are shown in **blue**.
+  - Left ways are shown in **lime**.
+  - Right ways are shown in **red**.
 - **Reusable Data Structures**: Efficiently processes nodes, ways, and relations while ensuring old data is cleared before new processing.
 
 ## Topics
