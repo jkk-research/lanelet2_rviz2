@@ -19,15 +19,28 @@ public:
     {
         this->declare_parameter<double>("line_width", 0.8);
         this->declare_parameter<std::string>("frame_id", "map_gyor_0");
+        this->declare_parameter<std::string>("osm_filename", "");
+        this->declare_parameter<bool>("center_map", false);
         this->get_parameter("line_width", line_width_);
         this->get_parameter("frame_id", frame_id_);
+        this->get_parameter("osm_filename", filename_);
+        this->get_parameter("center_map", center_map_);
+
         // marker_array_ways_pub_(this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_markers", 10));
         marker_array_relations_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_relations", 10);
-        // Subscriber to receive the filename
-        filename_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "osm_filename",
-            10,
-            std::bind(&OSMVisualizer::onFilenameReceived, this, std::placeholders::_1));
+
+        // Load and parse the OSM file
+        if (!filename_.empty()) {
+            try {
+                parseOSMFile(filename_.c_str());
+                if (center_map_) centerCoordinates();
+                data_loaded_ = true;
+            } catch (const std::exception& e) {
+                RCLCPP_ERROR(this->get_logger(), "Failed to parse OSM file: %s", e.what());
+            }
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "OSM filename parameter is empty.");
+        }
 
         // Create a timer to republish markers every second
         timer_ = this->create_wall_timer(
@@ -41,28 +54,14 @@ private:
     std::map<int, osm::Relation*> relations_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_array_ways_pub_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_array_relations_pub_;
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr filename_sub_;
     rclcpp::TimerBase::SharedPtr timer_;
     double center_x_ = 0.0; // Map center X coordinate
     double center_y_ = 0.0; // Map center Y coordinate
     bool data_loaded_ = false; // Flag to indicate if data has been loaded
     double line_width_ = 0.8; // Line width for visualization
     std::string frame_id_ = "map_gyor_0"; // Frame ID for visualization
-
-    void onFilenameReceived(const std_msgs::msg::String::SharedPtr msg) {
-        const std::string filename = msg->data;
-        RCLCPP_INFO(this->get_logger(), "Received OSM filename: %s", filename.c_str());
-
-        // Parse the file
-        try {
-            parseOSMFile(filename.c_str());
-            //centerCoordinates(); // TODO: parameterize this
-            //RCLCPP_INFO(this->get_logger(), "OSM file parsed and map centered successfully.");
-            data_loaded_ = true; // Indicate data is ready to be visualized
-        } catch (const std::exception& e) {
-            RCLCPP_ERROR(this->get_logger(), "Failed to parse OSM file: %s", e.what());
-        }
-    }
+    std::string filename_; // OSM filename parameter
+    bool center_map_ = false; // Center map if true (could be useful for debugging)
 
     void parseOSMFile(const char* filename) {
         // Clear previously loaded data

@@ -13,15 +13,9 @@ def generate_launch_description():
             parameters=[
                 {"frame_id": "map_gyor_0"},
                 {"line_width": 1.0},
+                {"osm_filename": "/home/zahu/ros2_ws/src/lanelet2_rviz2/src/ZalaZone_Uni_track_full_early.osm"},
+                {"center_map": False},
             ],
-        ),
-        ExecuteProcess(
-            cmd=[
-                'ros2', 'topic', 'pub', '/osm_filename', 
-                'std_msgs/msg/String', 
-                "{data: '/home/he/gyor_uni.osm'}"
-            ],
-            output='screen'
         ),
         Node(
             package='pcl_ros',
