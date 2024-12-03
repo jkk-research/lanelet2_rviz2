@@ -99,4 +99,4 @@ ros2 run pcl_ros pcd_to_pointcloud --ros-args -p file_name:=/home/he/dlio_map2.p
 
 ## Acknowledgments
 - **[RapidXML](https://rapidxml.sourceforge.net/)** is used for parsing the OSM files.
-- **[Earcut](https://github.com/mapbox/earcut)** is used for polygon triangulation, enabling visualization of filled areas in RViz2.
+- **[Earcut](https://github.com/mapbox/earcut.hpp)** is used for polygon triangulation, enabling visualization of filled areas in RViz2.
