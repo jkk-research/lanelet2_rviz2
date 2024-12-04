@@ -12,9 +12,10 @@ def generate_launch_description():
             output='screen',
             parameters=[
                 {"frame_id": "map_gyor_0"},
-                {"line_width": 1.0},
+                {"line_width": 0.2},
                 {"osm_filename": "/home/zahu/ros2_ws/src/lanelet2_rviz2/src/ZalaZone_Uni_track_full_early.osm"},
-                {"center_map": False},
+                {"center_map": True},
+                {"speed_color_max": 90.0}
             ],
         ),
         Node(
