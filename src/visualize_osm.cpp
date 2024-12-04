@@ -44,9 +44,7 @@ public:
 
         // marker_array_ways_pub_(this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_markers", 10));
         marker_array_relations_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_relations", 10);
-        marker_array_speed_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_speed", 10);
-        marker_array_one_way_arrows_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("osm_one_way_arrows", 10);
-
+        
 
         // Load and parse the OSM file
         if (!filename_.empty()) {
@@ -71,10 +69,7 @@ private:
     std::map<int, osm::Node*> nodes_;
     std::map<int, osm::Way*> ways_;
     std::map<int, osm::Relation*> relations_;
-    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_array_ways_pub_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_array_relations_pub_;
-    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_array_speed_pub_;
-    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_array_one_way_arrows_pub_;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr on_set_parameters_callback_handle_;
     double center_x_ = 0.0; // Map center X coordinate
@@ -521,8 +516,8 @@ private:
         }
 
         marker_array_relations_pub_->publish(marker_array_relations);
-        marker_array_speed_pub_->publish(marker_array_speed);
-        marker_array_one_way_arrows_pub_->publish(marker_array_one_way_arrows);
+        marker_array_relations_pub_->publish(marker_array_speed);
+        marker_array_relations_pub_->publish(marker_array_one_way_arrows);
         RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Published on frame: " << frame_id_);
     }
 
