@@ -20,6 +20,8 @@
 - **Dynamic Parameter Reconfiguration**: Modify visualization settings like `line_width`, `frame_id`, or `speed_color_max` during runtime without restarting the node.
 - **Reusable Data Structures**: Efficiently processes nodes, ways, and relations.
 
+![img01](etc/lanelet_visu01.png)
+
 ## Topics
 
 ### Published
