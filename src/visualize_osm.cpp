@@ -128,12 +128,30 @@ private:
 
         rapidxml::xml_node<>* root = doc.first_node("osm");
 
-        // Parse nodes
+        bool lat_lon_warning_issued = false;
+
         for (rapidxml::xml_node<>* node = root->first_node("node"); node; node = node->next_sibling("node")) {
             int id = std::stoi(node->first_attribute("id")->value());
-            double lat = std::stod(node->first_attribute("lat")->value());
-            double lon = std::stod(node->first_attribute("lon")->value());
-            double local_x = 0, local_y = 0, ele = 0;
+            double lat = 0, lon = 0, local_x = 0, local_y = 0, ele = 0;
+
+            try {
+                if (node->first_attribute("lat") && node->first_attribute("lon")) {
+                    lat = std::stod(node->first_attribute("lat")->value());
+                    lon = std::stod(node->first_attribute("lon")->value());
+                } else {
+                    if (!lat_lon_warning_issued) {
+                        RCLCPP_WARN(rclcpp::get_logger("node_parser"), "Some nodes have missing latitude or longitude attributes. Defaulting to 0 for such nodes.");
+                        lat_lon_warning_issued = true;
+                    }
+                }
+            } catch (const std::exception& e) {
+                if (!lat_lon_warning_issued) {
+                    RCLCPP_WARN(rclcpp::get_logger("node_parser"), "Some nodes have malformed latitude or longitude attributes. Defaulting to 0 for such nodes.");
+                    lat_lon_warning_issued = true;
+                }
+                lat = 0;
+                lon = 0;
+            }
 
             // Parse tags
             for (rapidxml::xml_node<>* tag = node->first_node("tag"); tag; tag = tag->next_sibling("tag")) {
