@@ -65,6 +65,11 @@ Launch the `OSMVisualizer` node with a launch file specifying the `.osm` filenam
 ros2 launch lanelet2_rviz2 visualize_osm.launch.py
 ```
 
+```bash
+ros2 run lanelet2_rviz2 visualize_osm --ros-args -p osm_filename:=/mnt/c/map/lanelet.osm -p frame_id:=map
+```
+
+
 ### 3. Visualize in RViz2
 - Open RViz2:
   ```bash
