@@ -2,6 +2,7 @@
 #define LANELET2_RVIZ2__WAY_HPP
 #include <vector>
 #include "node.hpp"
+using I64 = long long;
 
 // example way:
 //   <way id="11340">
@@ -23,9 +24,9 @@ public:
     Way& operator=(Way&&) = default;
     ~Way() = default;
 
-    Way(long long id) : id_(id) {}
+    Way(I64 id) : id_(id) {}
 
-    long long id() const { return id_; }
+    I64 id() const { return id_; }
 
     void add_node(osm::Node* node) { nodes_.push_back(node); }
 
@@ -42,7 +43,7 @@ public:
     }
 
 private:
-    long long id_;
+    I64 id_;
     std::vector<osm::Node*> nodes_;
 
     std::map<std::string, std::string> tags_;

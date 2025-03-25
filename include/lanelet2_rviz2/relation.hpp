@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "way.hpp"
+using I64 = long long;
 
 // exmaple relation
 //   <relation id="12895">
@@ -29,19 +30,19 @@ public:
     struct Member {
         std::string type;
         std::string role;
-        long long ref;
+        I64 ref;
     };
 
     // constructor to fill all fields
-    Relation(long long id) : id_(id) { }
+    Relation(I64 id) : id_(id) { }
 
 
-    long long id() const { return id_; }
+    I64 id() const { return id_; }
     Way* left() const { return left_; }
     Way* right() const { return right_; }
     std::string type() const { return type_; }
     std::string subtype() const { return subtype_; }
-    long long speed_limit() const { return speed_limit_; }
+    I64 speed_limit() const { return speed_limit_; }
     std::string location() const { return location_; }
     bool one_way() const { return one_way_; }
 
@@ -69,7 +70,7 @@ public:
     }
     
     // (Optional) Helper to get a member by role
-    osm::Way* getMemberByRole(const std::string &role, const std::map<long long, osm::Way*>& ways) const {
+    osm::Way* getMemberByRole(const std::string &role, const std::map<I64, osm::Way*>& ways) const {
         for (const auto &m : members_) {
             if (m.role == role && ways.count(m.ref)) {
                 return ways.at(m.ref);
@@ -79,13 +80,13 @@ public:
     }
     
 private:
-    long long id_;
+    I64 id_;
     osm::Way* left_;
     osm::Way* right_;
 
     std::string type_;
     std::string subtype_;
-    long long speed_limit_;
+    I64 speed_limit_;
     std::string location_;
     bool one_way_;   
 
