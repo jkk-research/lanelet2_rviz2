@@ -31,9 +31,21 @@ public:
 
     const std::vector<osm::Node*>& nodes() const { return nodes_; }
 
+    // Method to add a tag to this way
+    void add_tag(const std::string &key, const std::string &value) {
+        tags_[key] = value;
+    }
+    
+    // (Optional) Getter to access tags
+    const std::map<std::string, std::string>& tags() const {
+        return tags_;
+    }
+
 private:
     int id_;
     std::vector<osm::Node*> nodes_;
+
+    std::map<std::string, std::string> tags_;
 };
 
 }; // namespace osm

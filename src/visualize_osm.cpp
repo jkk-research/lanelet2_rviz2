@@ -178,48 +178,46 @@ private:
                     way->add_node(nodes_[ref]);
                 }
             }
-
+            
+            // Parse and store additional <tag> elements for this way
+            for (rapidxml::xml_node<>* tag = wayNode->first_node("tag"); tag; tag = tag->next_sibling("tag")) {
+                std::string key = tag->first_attribute("k")->value();
+                std::string value = tag->first_attribute("v")->value();
+                way->add_tag(key, value);
+            }
+            
             ways_[id] = way;
         }
 
         // Parse relations
         for (rapidxml::xml_node<>* relationNode = root->first_node("relation"); relationNode; relationNode = relationNode->next_sibling("relation")) {
             int id = std::stoi(relationNode->first_attribute("id")->value());
-            osm::Way* left = nullptr;
-            osm::Way* right = nullptr;
-            std::string type, subtype, location;
-            int speed_limit = 0;
-            bool one_way = false;
-
-            // Parse members
+            
+            // Create a vector to hold all relation members
+            std::vector<osm::Relation::Member> members;
             for (rapidxml::xml_node<>* member = relationNode->first_node("member"); member; member = member->next_sibling("member")) {
-                std::string role = member->first_attribute("role")->value();
-                int ref = std::stoi(member->first_attribute("ref")->value());
-                if (role == "left") {
-                    if (ways_.count(ref)) {
-                        left = ways_[ref];
-                    }
-                } else if (role == "right") {
-                    if (ways_.count(ref)) {
-                        right = ways_[ref];
-                    }
-                }
+                osm::Relation::Member mem;
+                mem.type = member->first_attribute("type")->value();
+                mem.role = member->first_attribute("role")->value();
+                mem.ref = std::stoi(member->first_attribute("ref")->value());
+                members.push_back(mem);
             }
 
-            // Parse tags
+            // Create the relation object (adjust the constructor if needed, or use setters later)
+            osm::Relation* relation = new osm::Relation(id);
+            relation->set_members(members);
+
+            // Parse and store all tags for this relation
             for (rapidxml::xml_node<>* tag = relationNode->first_node("tag"); tag; tag = tag->next_sibling("tag")) {
                 std::string key = tag->first_attribute("k")->value();
                 std::string value = tag->first_attribute("v")->value();
-                if (key == "type") type = value;
-                else if (key == "subtype") subtype = value;
-                else if (key == "speed_limit") speed_limit = std::stoi(value);
-                else if (key == "location") location = value;
-                else if (key == "one_way") one_way = value == "yes";
+                relation->add_tag(key, value);
             }
 
-            osm::Relation* relation = new osm::Relation(id, left, right, type, subtype, speed_limit, location, one_way);
             relations_[id] = relation;
         }
+
+
     }
 
     Marker triangulatePolygon(const PolygonStamped &polygon, double r=1.0, double g=1.0, double b=1.0, double a=1.0, int id=0) {
@@ -341,7 +339,7 @@ private:
             left_marker.scale.x = line_width_;
 
             // Add points from left way nodes
-            for (const osm::Node* node : relation.left()->nodes()) {
+            for (const osm::Node* node : relation.getMemberByRole("left", ways_)->nodes()) {
                 geometry_msgs::msg::Point point;
                 point.x = node->local_x();
                 point.y = node->local_y();
@@ -370,7 +368,7 @@ private:
             right_marker.scale.x = line_width_;
 
             // Add points from right way nodes
-            for (const osm::Node* node : relation.right()->nodes()) {
+            for (const osm::Node* node : relation.getMemberByRole("right", ways_)->nodes()) {
                 geometry_msgs::msg::Point point;
                 point.x = node->local_x();
                 point.y = node->local_y();
@@ -385,7 +383,7 @@ private:
             PolygonStamped left_right_polygon;
             left_right_polygon.header.frame_id = frame_id_;
             left_right_polygon.header.stamp = this->now();
-            for (const osm::Node* node : relation.left()->nodes()) {
+            for (const osm::Node* node : relation.getMemberByRole("left", ways_)->nodes()) {
                 geometry_msgs::msg::Point32 point;
                 point.x = node->local_x();
                 point.y = node->local_y();
@@ -393,7 +391,7 @@ private:
                 left_right_polygon.polygon.points.push_back(point);
             }
             // the right way is traversed in reverse order, so they are connected properly
-            for (auto it = relation.right()->nodes().rbegin(); it != relation.right()->nodes().rend(); ++it) {
+            for (auto it = relation.getMemberByRole("right", ways_)->nodes().rbegin(); it != relation.getMemberByRole("right", ways_)->nodes().rend(); ++it) {
                 const osm::Node* node = *it;
                 geometry_msgs::msg::Point32 point;
                 point.x = node->local_x();
@@ -449,8 +447,8 @@ private:
             one_way_arrow.action = visualization_msgs::msg::Marker::ADD;
 
             // Get the middle point of the first points of the left and right ways
-            const osm::Node* left_first = relation.left()->nodes().front();
-            const osm::Node* right_first = relation.right()->nodes().front();
+            const osm::Node* left_first = relation.getMemberByRole("left", ways_)->nodes().front();
+            const osm::Node* right_first = relation.getMemberByRole("right", ways_)->nodes().front();
             geometry_msgs::msg::Point midpoint;
             midpoint.x = (left_first->local_x() + right_first->local_x()) / 2;
             midpoint.y = (left_first->local_y() + right_first->local_y()) / 2;
@@ -468,8 +466,8 @@ private:
             one_way_arrow.scale.z = 1.0;
 
             // Calculate the direction vector of the lane based on the first and second points
-            const osm::Node* left_second = relation.left()->nodes()[1];
-            const osm::Node* right_second = relation.right()->nodes()[1];
+            const osm::Node* left_second = relation.getMemberByRole("left", ways_)->nodes()[1];
+            const osm::Node* right_second = relation.getMemberByRole("right", ways_)->nodes()[1];
             double dir_x = ((left_second->local_x() + right_second->local_x()) / 2) - midpoint.x;
             double dir_y = ((left_second->local_y() + right_second->local_y()) / 2) - midpoint.y;
             double length = std::sqrt(dir_x * dir_x + dir_y * dir_y);
