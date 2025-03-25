@@ -317,23 +317,27 @@ private:
         return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
 
-    void publishMarkers() {
-        if (!data_loaded_) {
-            return; // Only publish if data is loaded
-        }
+void publishMarkers() {
+    if (!data_loaded_) {
+        return; // Only publish if data is loaded
+    }
 
-        // visualization_msgs::msg::MarkerArray marker_array_ways;
-        visualization_msgs::msg::MarkerArray marker_array_relations;
-        visualization_msgs::msg::MarkerArray marker_array_speed;
-        visualization_msgs::msg::MarkerArray marker_array_one_way_arrows;
+    visualization_msgs::msg::MarkerArray marker_array_relations;
+    visualization_msgs::msg::MarkerArray marker_array_speed;
+    visualization_msgs::msg::MarkerArray marker_array_one_way_arrows;
 
-        int marker_id = 0;
+    int marker_id = 0;
 
-        // visualize the ways in relations
-        for (const auto& relation_pair : relations_) {
-            const osm::Relation& relation = *relation_pair.second;
+    // visualize the ways in relations
+    for (const auto& relation_pair : relations_) {
+        const osm::Relation& relation = *relation_pair.second;
 
-            // Marker for left way
+        // Get left and right members once
+        osm::Way* leftWay = relation.getMemberByRole("left", ways_);
+        osm::Way* rightWay = relation.getMemberByRole("right", ways_);
+
+        // Marker for left way
+        if (leftWay) {
             visualization_msgs::msg::Marker left_marker;
             left_marker.header.frame_id = frame_id_;
             left_marker.header.stamp = this->now();
@@ -352,17 +356,20 @@ private:
             left_marker.scale.x = line_width_;
 
             // Add points from left way nodes
-            for (const osm::Node* node : relation.getMemberByRole("left", ways_)->nodes()) {
+            for (const osm::Node* node : leftWay->nodes()) {
                 geometry_msgs::msg::Point point;
                 point.x = node->local_x();
                 point.y = node->local_y();
                 point.z = node->ele(); 
                 left_marker.points.push_back(point);
             }
-
             marker_array_relations.markers.push_back(left_marker);
+        } else {
+            RCLCPP_WARN(this->get_logger(), "Relation (ID: %lld) has no left member", relation.id());
+        }
 
-            // Marker for right way
+        // Marker for right way
+        if (rightWay) {
             visualization_msgs::msg::Marker right_marker;
             right_marker.header.frame_id = frame_id_;
             right_marker.header.stamp = this->now();
@@ -381,30 +388,35 @@ private:
             right_marker.scale.x = line_width_;
 
             // Add points from right way nodes
-            for (const osm::Node* node : relation.getMemberByRole("right", ways_)->nodes()) {
+            for (const osm::Node* node : rightWay->nodes()) {
                 geometry_msgs::msg::Point point;
                 point.x = node->local_x();
                 point.y = node->local_y();
                 point.z = node->ele(); 
                 right_marker.points.push_back(point);
             }
-
             marker_array_relations.markers.push_back(right_marker);
+        } else {
+            RCLCPP_WARN(this->get_logger(), "Relation (ID: %lld) has no right member", relation.id());
+        }
 
-
-            // make polygons from the left and right ways
-            PolygonStamped left_right_polygon;
-            left_right_polygon.header.frame_id = frame_id_;
-            left_right_polygon.header.stamp = this->now();
-            for (const osm::Node* node : relation.getMemberByRole("left", ways_)->nodes()) {
+        // make polygons from the left and right ways
+        PolygonStamped left_right_polygon;
+        left_right_polygon.header.frame_id = frame_id_;
+        left_right_polygon.header.stamp = this->now();
+        if (leftWay) {
+            for (const osm::Node* node : leftWay->nodes()) {
                 geometry_msgs::msg::Point32 point;
                 point.x = node->local_x();
                 point.y = node->local_y();
                 point.z = node->ele(); 
                 left_right_polygon.polygon.points.push_back(point);
             }
-            // the right way is traversed in reverse order, so they are connected properly
-            for (auto it = relation.getMemberByRole("right", ways_)->nodes().rbegin(); it != relation.getMemberByRole("right", ways_)->nodes().rend(); ++it) {
+        } else {
+            RCLCPP_WARN(this->get_logger(), "Relation (ID: %lld) has no left member for polygon", relation.id());
+        }
+        if (rightWay) {
+            for (auto it = rightWay->nodes().rbegin(); it != rightWay->nodes().rend(); ++it) {
                 const osm::Node* node = *it;
                 geometry_msgs::msg::Point32 point;
                 point.x = node->local_x();
@@ -412,56 +424,61 @@ private:
                 point.z = node->ele();
                 left_right_polygon.polygon.points.push_back(point);
             }
+        } else {
+            RCLCPP_WARN(this->get_logger(), "Relation (ID: %lld) has no right member for polygon", relation.id());
+        }
 
-            // gradient color based on speed limit
-            double r, g, b;
-            // green-blue-red gradient: https://coolors.co/gradient-maker/7fffbb-0088cc-e73666
             float green_r = 127. / 255., green_g = 255. / 255., green_b = 187. / 255.; // #7FFFBB 127, 255, 187
             float red_r = 231. / 255., red_g = 54. / 255., red_b = 102. / 255.;        // #E73666 231, 54, 102
             float blue_r = 0. / 255., blue_g = 136. / 255., blue_b = 204. / 255.;      // #0088CC 0, 136, 204
-            if (relation.speed_limit() < 0) {
-                r = green_r;
-                g = green_g;
-                b = green_b;
-            }
-            else if (relation.speed_limit() > speed_color_max_) {
-                r = red_r;
-                g = red_g;
-                b = red_b;
-            }
-            else if (0 < relation.speed_limit() && relation.speed_limit() < speed_color_max_ / 2) {
-                float c0 = mapval(relation.speed_limit(), 0, speed_color_max_ / 2, green_r, blue_r);
-                float c1 = mapval(relation.speed_limit(), 0, speed_color_max_ / 2, green_g, blue_g);
-                float c2 = mapval(relation.speed_limit(), 0, speed_color_max_ / 2, green_b, blue_b);
-                r = c0;
-                g = c1;
-                b = c2;
-            }
-            else {
-                float c0 = mapval(relation.speed_limit(), speed_color_max_ / 2, speed_color_max_, blue_r, red_r);
-                float c1 = mapval(relation.speed_limit(), speed_color_max_ / 2, speed_color_max_, blue_g, red_g);
-                float c2 = mapval(relation.speed_limit(), speed_color_max_ / 2, speed_color_max_, blue_b, red_b);
-                r = c0;
-                g = c1;
-                b = c2;
-            }
+        // gradient color based on speed limit
+        double r, g, b;
+        // green-blue-red gradient: https://coolors.co/gradient-maker/7fffbb-0088cc-e73666
+        if (relation.speed_limit() < 0) {
+            r = green_r;
+            g = green_g;
+            b = green_b;
+        }
+        else if (relation.speed_limit() > speed_color_max_) {
+            r = red_r;
+            g = red_g;
+            b = red_b;
+        }
+        else if (0 < relation.speed_limit() && relation.speed_limit() < speed_color_max_ / 2) {
+            float c0 = mapval(relation.speed_limit(), 0, speed_color_max_ / 2, green_r, blue_r);
+            float c1 = mapval(relation.speed_limit(), 0, speed_color_max_ / 2, green_g, blue_g);
+            float c2 = mapval(relation.speed_limit(), 0, speed_color_max_ / 2, green_b, blue_b);
+            r = c0;
+            g = c1;
+            b = c2;
+        }
+        else {
+            float c0 = mapval(relation.speed_limit(), speed_color_max_ / 2, speed_color_max_, blue_r, red_r);
+            float c1 = mapval(relation.speed_limit(), speed_color_max_ / 2, speed_color_max_, blue_g, red_g);
+            float c2 = mapval(relation.speed_limit(), speed_color_max_ / 2, speed_color_max_, blue_b, red_b);
+            r = c0;
+            g = c1;
+            b = c2;
+        }
 
-            // triangulate the polygon
-            Marker triangle_marker = triangulatePolygon(left_right_polygon, r, g, b, 0.1, marker_id++);
-            marker_array_speed.markers.push_back(triangle_marker);
+        // triangulate the polygon
+        Marker triangle_marker = triangulatePolygon(left_right_polygon, r, g, b, 0.1, marker_id++);
+        marker_array_speed.markers.push_back(triangle_marker);
 
-            // visualize arrows that show the one-way direction of each lane
-            visualization_msgs::msg::Marker one_way_arrow;
-            one_way_arrow.header.frame_id = frame_id_;
-            one_way_arrow.header.stamp = this->now();
-            one_way_arrow.ns = "osm_one_way_arrows";
-            one_way_arrow.id = marker_id++;
-            one_way_arrow.type = visualization_msgs::msg::Marker::TRIANGLE_LIST;
-            one_way_arrow.action = visualization_msgs::msg::Marker::ADD;
+        // visualize arrows that show the one-way direction of each lane
+        visualization_msgs::msg::Marker one_way_arrow;
+        one_way_arrow.header.frame_id = frame_id_;
+        one_way_arrow.header.stamp = this->now();
+        one_way_arrow.ns = "osm_one_way_arrows";
+        one_way_arrow.id = marker_id++;
+        one_way_arrow.type = visualization_msgs::msg::Marker::TRIANGLE_LIST;
+        one_way_arrow.action = visualization_msgs::msg::Marker::ADD;
 
-            // Get the middle point of the first points of the left and right ways
-            const osm::Node* left_first = relation.getMemberByRole("left", ways_)->nodes().front();
-            const osm::Node* right_first = relation.getMemberByRole("right", ways_)->nodes().front();
+        if (!leftWay || leftWay->nodes().empty() || !rightWay || rightWay->nodes().empty()) {
+            RCLCPP_WARN(this->get_logger(), "Relation (ID: %lld) missing left or right member for arrow", relation.id());
+        } else {
+            const osm::Node* left_first = leftWay->nodes().front();
+            const osm::Node* right_first = rightWay->nodes().front();
             geometry_msgs::msg::Point midpoint;
             midpoint.x = (left_first->local_x() + right_first->local_x()) / 2;
             midpoint.y = (left_first->local_y() + right_first->local_y()) / 2;
@@ -478,77 +495,82 @@ private:
             one_way_arrow.scale.y = 1.0;
             one_way_arrow.scale.z = 1.0;
 
-            // Calculate the direction vector of the lane based on the first and second points
-            const osm::Node* left_second = relation.getMemberByRole("left", ways_)->nodes()[1];
-            const osm::Node* right_second = relation.getMemberByRole("right", ways_)->nodes()[1];
-            double dir_x = ((left_second->local_x() + right_second->local_x()) / 2) - midpoint.x;
-            double dir_y = ((left_second->local_y() + right_second->local_y()) / 2) - midpoint.y;
-            double length = std::sqrt(dir_x * dir_x + dir_y * dir_y);
-            dir_x /= length;
-            dir_y /= length;
-            dir_x = -dir_x;
-            dir_y = -dir_y;
+            if (leftWay->nodes().size() > 1 && rightWay->nodes().size() > 1) {
+                const osm::Node* left_second = leftWay->nodes()[1];
+                const osm::Node* right_second = rightWay->nodes()[1];
+                double dir_x = ((left_second->local_x() + right_second->local_x()) / 2) - midpoint.x;
+                double dir_y = ((left_second->local_y() + right_second->local_y()) / 2) - midpoint.y;
+                double length = std::sqrt(dir_x * dir_x + dir_y * dir_y);
+                if (length != 0) {
+                    dir_x /= length;
+                    dir_y /= length;
+                }
+                dir_x = -dir_x;
+                dir_y = -dir_y;
 
-            // Define the points for the arrow triangle
-            geometry_msgs::msg::Point p1, p2, p3;
-            double arrow_size = 1.0; // Adjust this value to control the arrow size
+                geometry_msgs::msg::Point p1, p2, p3;
+                double arrow_size = 1.0; // Adjust this value to control the arrow size
 
-            // Pointing direction (90-degree angle at p1)
-            p1.x = midpoint.x;
-            p1.y = midpoint.y;
-            p1.z = 0.0;
+                // Pointing direction (90-degree angle at p1)
+                p1.x = midpoint.x;
+                p1.y = midpoint.y;
+                p1.z = 0.0;
 
-            // Calculate the perpendicular vector to the direction vector
-            double perp_x = -dir_y;
-            double perp_y = dir_x;
+                // Calculate the perpendicular vector to the direction vector
+                double perp_x = -dir_y;
+                double perp_y = dir_x;
 
-            // Define the other two points of the triangle
-            p2.x = midpoint.x + arrow_size * dir_x + arrow_size * perp_x;
-            p2.y = midpoint.y + arrow_size * dir_y + arrow_size * perp_y;
-            p2.z = 0.0;
+                // Define the other two points of the triangle
+                p2.x = midpoint.x + arrow_size * dir_x + arrow_size * perp_x;
+                p2.y = midpoint.y + arrow_size * dir_y + arrow_size * perp_y;
+                p2.z = 0.0;
 
-            p3.x = midpoint.x + arrow_size * dir_x - arrow_size * perp_x;
-            p3.y = midpoint.y + arrow_size * dir_y - arrow_size * perp_y;
-            p3.z = 0.0;
+                p3.x = midpoint.x + arrow_size * dir_x - arrow_size * perp_x;
+                p3.y = midpoint.y + arrow_size * dir_y - arrow_size * perp_y;
+                p3.z = 0.0;
 
-            // Add the points to form the triangle
-            one_way_arrow.points.push_back(p1);
-            one_way_arrow.points.push_back(p2);
-            one_way_arrow.points.push_back(p3);
+                one_way_arrow.points.push_back(p1);
+                one_way_arrow.points.push_back(p2);
+                one_way_arrow.points.push_back(p3);
 
-            // only push the marker if the distance from the previous one is greater than 10 (to avoid overlapping arrows, if a way is very short)
-            if (marker_array_one_way_arrows.markers.empty()) {
-                marker_array_one_way_arrows.markers.push_back(one_way_arrow);
-            } else {
-                const auto& prev_arrow = marker_array_one_way_arrows.markers.back();
-                double prev_x = prev_arrow.points[0].x;
-                double prev_y = prev_arrow.points[0].y;
-                double dist = std::sqrt((midpoint.x - prev_x) * (midpoint.x - prev_x) + (midpoint.y - prev_y) * (midpoint.y - prev_y));
-                if (dist > 4) {
+                if (marker_array_one_way_arrows.markers.empty()) {
                     marker_array_one_way_arrows.markers.push_back(one_way_arrow);
+                } else {
+                    const auto& prev_arrow = marker_array_one_way_arrows.markers.back();
+                    double prev_x = prev_arrow.points[0].x;
+                    double prev_y = prev_arrow.points[0].y;
+                    double dist = std::sqrt((midpoint.x - prev_x) * (midpoint.x - prev_x) +
+                                            (midpoint.y - prev_y) * (midpoint.y - prev_y));
+                    if (dist > 4) {
+                        marker_array_one_way_arrows.markers.push_back(one_way_arrow);
+                    }
                 }
-            }
-
-        }
-
-        // remove any arrows that are closer than 2 meters to each other (they might not be next to each other in the array)
-        for (size_t i = 0; i < marker_array_one_way_arrows.markers.size(); ++i) {
-            for (size_t j = i + 1; j < marker_array_one_way_arrows.markers.size(); ++j) {
-                const auto& arrow1 = marker_array_one_way_arrows.markers[i];
-                const auto& arrow2 = marker_array_one_way_arrows.markers[j];
-                double dist = std::sqrt((arrow1.points[0].x - arrow2.points[0].x) * (arrow1.points[0].x - arrow2.points[0].x) + (arrow1.points[0].y - arrow2.points[0].y) * (arrow1.points[0].y - arrow2.points[0].y));
-                if (dist < 2) {
-                    marker_array_one_way_arrows.markers.erase(marker_array_one_way_arrows.markers.begin() + j);
-                    --j;
-                }
+            } else {
+                RCLCPP_WARN(this->get_logger(), "Relation (ID: %lld) has insufficient nodes for arrow", relation.id());
             }
         }
-
-        marker_array_relations_pub_->publish(marker_array_relations);
-        marker_array_relations_pub_->publish(marker_array_speed);
-        marker_array_relations_pub_->publish(marker_array_one_way_arrows);
-        RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Published on frame: " << frame_id_);
     }
+
+    // remove any arrows that are closer than 2 meters to each other
+    for (size_t i = 0; i < marker_array_one_way_arrows.markers.size(); ++i) {
+        for (size_t j = i + 1; j < marker_array_one_way_arrows.markers.size(); ++j) {
+            const auto& arrow1 = marker_array_one_way_arrows.markers[i];
+            const auto& arrow2 = marker_array_one_way_arrows.markers[j];
+            double dist = std::sqrt((arrow1.points[0].x - arrow2.points[0].x) * (arrow1.points[0].x - arrow2.points[0].x) +
+                                    (arrow1.points[0].y - arrow2.points[0].y) * (arrow1.points[0].y - arrow2.points[0].y));
+            if (dist < 2) {
+                marker_array_one_way_arrows.markers.erase(marker_array_one_way_arrows.markers.begin() + j);
+                --j;
+            }
+        }
+    }
+
+    marker_array_relations_pub_->publish(marker_array_relations);
+    marker_array_relations_pub_->publish(marker_array_speed);
+    marker_array_relations_pub_->publish(marker_array_one_way_arrows);
+    RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Published on frame: " << frame_id_);
+}
+
 
     void clearData() {
         for (auto& pair : nodes_) delete pair.second;
