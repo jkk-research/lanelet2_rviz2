@@ -29,19 +29,19 @@ public:
     struct Member {
         std::string type;
         std::string role;
-        int ref;
+        long long ref;
     };
 
     // constructor to fill all fields
-    Relation(int id) : id_(id) { }
+    Relation(long long id) : id_(id) { }
 
 
-    int id() const { return id_; }
+    long long id() const { return id_; }
     Way* left() const { return left_; }
     Way* right() const { return right_; }
     std::string type() const { return type_; }
     std::string subtype() const { return subtype_; }
-    int speed_limit() const { return speed_limit_; }
+    long long speed_limit() const { return speed_limit_; }
     std::string location() const { return location_; }
     bool one_way() const { return one_way_; }
 
@@ -69,7 +69,7 @@ public:
     }
     
     // (Optional) Helper to get a member by role
-    osm::Way* getMemberByRole(const std::string &role, const std::map<int, osm::Way*>& ways) const {
+    osm::Way* getMemberByRole(const std::string &role, const std::map<long long, osm::Way*>& ways) const {
         for (const auto &m : members_) {
             if (m.role == role && ways.count(m.ref)) {
                 return ways.at(m.ref);
@@ -79,13 +79,13 @@ public:
     }
     
 private:
-    int id_;
+    long long id_;
     osm::Way* left_;
     osm::Way* right_;
 
     std::string type_;
     std::string subtype_;
-    int speed_limit_;
+    long long speed_limit_;
     std::string location_;
     bool one_way_;   
 

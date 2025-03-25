@@ -19,10 +19,10 @@ public:
     Node& operator=(Node&&) = default;
     ~Node() = default;
 
-    Node(int id, double lat, double lon, double local_x, double local_y, double ele)
+    Node(long long id, double lat, double lon, double local_x, double local_y, double ele)
         : id_(id), lat_(lat), lon_(lon), local_x_(local_x), local_y_(local_y), ele_(ele) {}
 
-    int id() const { return id_; }
+    long long id() const { return id_; }
     double lat() const { return lat_; }
     double lon() const { return lon_; }
     double local_x() const { return local_x_; }
@@ -33,7 +33,7 @@ public:
     void set_local_y(double local_y) { local_y_ = local_y; }
 
 private:
-    int id_;
+    long long id_;
     double lat_;
     double lon_;
     double local_x_;

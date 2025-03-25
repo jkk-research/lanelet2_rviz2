@@ -23,9 +23,9 @@ public:
     Way& operator=(Way&&) = default;
     ~Way() = default;
 
-    Way(int id) : id_(id) {}
+    Way(long long id) : id_(id) {}
 
-    int id() const { return id_; }
+    long long id() const { return id_; }
 
     void add_node(osm::Node* node) { nodes_.push_back(node); }
 
@@ -42,7 +42,7 @@ public:
     }
 
 private:
-    int id_;
+    long long id_;
     std::vector<osm::Node*> nodes_;
 
     std::map<std::string, std::string> tags_;

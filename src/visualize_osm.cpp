@@ -66,9 +66,9 @@ public:
         RCLCPP_INFO(this->get_logger(), "OSM Visualizer node started.");
     }
 private:
-    std::map<int, osm::Node*> nodes_;
-    std::map<int, osm::Way*> ways_;
-    std::map<int, osm::Relation*> relations_;
+    std::map<long long, osm::Node*> nodes_;
+    std::map<long long, osm::Way*> ways_;
+    std::map<long long, osm::Relation*> relations_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_array_relations_pub_;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr on_set_parameters_callback_handle_;
@@ -131,7 +131,7 @@ private:
         bool lat_lon_warning_issued = false;
 
         for (rapidxml::xml_node<>* node = root->first_node("node"); node; node = node->next_sibling("node")) {
-            int id = std::stoi(node->first_attribute("id")->value());
+            long long id = std::stoll(node->first_attribute("id")->value());
             double lat = 0, lon = 0, local_x = 0, local_y = 0, ele = 0;
 
             try {
@@ -140,27 +140,40 @@ private:
                     lon = std::stod(node->first_attribute("lon")->value());
                 } else {
                     if (!lat_lon_warning_issued) {
-                        RCLCPP_WARN(rclcpp::get_logger("node_parser"), "Some nodes have missing latitude or longitude attributes. Defaulting to 0 for such nodes.");
+                        RCLCPP_WARN(rclcpp::get_logger("node_parser"), "Some nodes have missing latitude or long longitude attributes. Defaulting to 0 for such nodes.");
                         lat_lon_warning_issued = true;
                     }
                 }
             } catch (const std::exception& e) {
                 if (!lat_lon_warning_issued) {
-                    RCLCPP_WARN(rclcpp::get_logger("node_parser"), "Some nodes have malformed latitude or longitude attributes. Defaulting to 0 for such nodes.");
+                    RCLCPP_WARN(rclcpp::get_logger("node_parser"), "Some nodes have malformed latitude or long longitude attributes. Defaulting to 0 for such nodes.");
                     lat_lon_warning_issued = true;
                 }
                 lat = 0;
                 lon = 0;
             }
 
-            // Parse tags
+            // Parse tags: Only convert values for keys that should be numeric.
             for (rapidxml::xml_node<>* tag = node->first_node("tag"); tag; tag = tag->next_sibling("tag")) {
                 std::string key = tag->first_attribute("k")->value();
-                double value = std::stod(tag->first_attribute("v")->value());
-                if (key == "local_x") local_x = value;
-                else if (key == "local_y") local_y = value;
-                else if (key == "ele") ele = value;
+                // Only process numeric tags
+                if (key == "local_x" || key == "local_y" || key == "ele") {
+                    try {
+                        double value = std::stod(tag->first_attribute("v")->value());
+                        if (key == "local_x") {
+                            local_x = value;
+                        } else if (key == "local_y") {
+                            local_y = value;
+                        } else if (key == "ele") {
+                            ele = value;
+                        }
+                    } catch (const std::exception &e) {
+                        RCLCPP_WARN(this->get_logger(), "Failed to parse numeric tag %s with value %s: %s",
+                                    key.c_str(), tag->first_attribute("v")->value(), e.what());
+                    }
+                }
             }
+
 
             osm::Node* newNode = new osm::Node(id, lat, lon, local_x, local_y, ele);
             nodes_[id] = newNode;
@@ -168,12 +181,12 @@ private:
 
         // Parse ways
         for (rapidxml::xml_node<>* wayNode = root->first_node("way"); wayNode; wayNode = wayNode->next_sibling("way")) {
-            int id = std::stoi(wayNode->first_attribute("id")->value());
+            long long id = std::stoll(wayNode->first_attribute("id")->value());
             osm::Way* way = new osm::Way(id);
 
             // Parse nd references
             for (rapidxml::xml_node<>* nd = wayNode->first_node("nd"); nd; nd = nd->next_sibling("nd")) {
-                int ref = std::stoi(nd->first_attribute("ref")->value());
+                long long ref = std::stoll(nd->first_attribute("ref")->value());
                 if (nodes_.count(ref)) {
                     way->add_node(nodes_[ref]);
                 }
@@ -191,7 +204,7 @@ private:
 
         // Parse relations
         for (rapidxml::xml_node<>* relationNode = root->first_node("relation"); relationNode; relationNode = relationNode->next_sibling("relation")) {
-            int id = std::stoi(relationNode->first_attribute("id")->value());
+            long long id = std::stoll(relationNode->first_attribute("id")->value());
             
             // Create a vector to hold all relation members
             std::vector<osm::Relation::Member> members;
@@ -199,7 +212,7 @@ private:
                 osm::Relation::Member mem;
                 mem.type = member->first_attribute("type")->value();
                 mem.role = member->first_attribute("role")->value();
-                mem.ref = std::stoi(member->first_attribute("ref")->value());
+                mem.ref = std::stoll(member->first_attribute("ref")->value());
                 members.push_back(mem);
             }
 
@@ -220,7 +233,7 @@ private:
 
     }
 
-    Marker triangulatePolygon(const PolygonStamped &polygon, double r=1.0, double g=1.0, double b=1.0, double a=1.0, int id=0) {
+    Marker triangulatePolygon(const PolygonStamped &polygon, double r=1.0, double g=1.0, double b=1.0, double a=1.0, long long id=0) {
         Marker triangle_marker;
 
         if (polygon.polygon.points.size() < 3) {
