@@ -96,12 +96,22 @@ ros2 run rqt_reconfigure rqt_reconfigure
 
 ## Usage with Pointcloud
 
+### Option 1. - `pcl_ros`
+
 ```bash
 sudo apt install ros-$ROS_DISTRO-pcl-ros
 ```
 
 ```bash
 ros2 run pcl_ros pcd_to_pointcloud --ros-args -p file_name:=/home/he/dlio_map2.pcd -p tf_frame:=map_gyor_0 -p publishing_period_ms:=500 --qos-reliability best_effort
+```
+
+### Option 2. - `pcl_ros`
+
+[github.com/jkk-research/pcd_publisher](https://github.com/jkk-research/pcd_publisher)
+
+```bash
+ros2 run pcd_publisher pcd_publisher --ros-args -p pcd_file_path:=/home/dev/autoware_map/gyor_campus/pointcloud_map.pcd -p topic_name:=/points_campus -p frame_id:=map_gyor_0
 ```
 
 ## Acknowledgments
