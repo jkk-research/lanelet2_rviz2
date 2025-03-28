@@ -106,7 +106,7 @@ sudo apt install ros-$ROS_DISTRO-pcl-ros
 ros2 run pcl_ros pcd_to_pointcloud --ros-args -p file_name:=/home/he/dlio_map2.pcd -p tf_frame:=map_gyor_0 -p publishing_period_ms:=500 --qos-reliability best_effort
 ```
 
-### Option 2. - `pcl_ros`
+### Option 2. - `pcd_publisher`
 
 [github.com/jkk-research/pcd_publisher](https://github.com/jkk-research/pcd_publisher)
 
