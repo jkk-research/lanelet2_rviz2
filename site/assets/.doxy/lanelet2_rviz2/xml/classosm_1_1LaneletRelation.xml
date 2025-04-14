@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classosm_1_1LaneletRelation" kind="class" language="C++" prot="public">
+    <compoundname>osm::LaneletRelation</compoundname>
+    <basecompoundref refid="classosm_1_1Relation" prot="public" virt="non-virtual">osm::Relation</basecompoundref>
+    <includes refid="Relation_8hpp" local="no">Relation.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classosm_1_1LaneletRelation_1a5f70b440dd67ff332d2ff8c572731291" prot="private" static="no" mutable="no">
+        <type><ref refid="classosm_1_1Way" kindref="compound">osm::Way</ref> *</type>
+        <definition>osm::Way* osm::LaneletRelation::left_</definition>
+        <argsstring></argsstring>
+        <name>left_</name>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+<para>Pointer to the left <ref refid="classosm_1_1Way" kindref="compound">Way</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="321" column="14" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1LaneletRelation_1a5bc51ce65fb62d1cc096267395b5bdfd" prot="private" static="no" mutable="no">
+        <type><ref refid="classosm_1_1Way" kindref="compound">osm::Way</ref> *</type>
+        <definition>osm::Way* osm::LaneletRelation::right_</definition>
+        <argsstring></argsstring>
+        <name>right_</name>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+<para>Pointer to the right <ref refid="classosm_1_1Way" kindref="compound">Way</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="322" column="14" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1LaneletRelation_1af5bf041007061c8db427a1f8167259e3" prot="private" static="no" mutable="no">
+        <type>I64</type>
+        <definition>I64 osm::LaneletRelation::speed_limit_</definition>
+        <argsstring></argsstring>
+        <name>speed_limit_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Speed limit for the lanelet. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="323" column="9" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1LaneletRelation_1ab610b6f393639418125ec5bfb3dd9c05" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string osm::LaneletRelation::location_</definition>
+        <argsstring></argsstring>
+        <name>location_</name>
+        <briefdescription>
+<para>Location descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="324" column="17" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1LaneletRelation_1ad7232caad4efd8a6e65fae4760f4bf7e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool osm::LaneletRelation::one_way_</definition>
+        <argsstring></argsstring>
+        <name>one_way_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Whether the lane is one-way. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="325" column="10" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1LaneletRelation_1a896d582c16b3039e0549f0b89dbee2c6" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string osm::LaneletRelation::turn_direction_</definition>
+        <argsstring></argsstring>
+        <name>turn_direction_</name>
+        <briefdescription>
+<para>Turn direction string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="326" column="17" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a4bb9d65ece5ea2a4803023b18cb3ecff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>osm::LaneletRelation::LaneletRelation</definition>
+        <argsstring>(I64 id)</argsstring>
+        <name>LaneletRelation</name>
+        <param>
+          <type>I64</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="104" column="5" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a5e581b4adf448c62759667f03651ce16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::LaneletRelation::LaneletRelation</definition>
+        <argsstring>(const LaneletRelation &amp;)=default</argsstring>
+        <name>LaneletRelation</name>
+        <param>
+          <type>const <ref refid="classosm_1_1LaneletRelation" kindref="compound">LaneletRelation</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="105" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a00ee54e0f5c1b85f88653722f53a87b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::LaneletRelation::LaneletRelation</definition>
+        <argsstring>(LaneletRelation &amp;&amp;)=default</argsstring>
+        <name>LaneletRelation</name>
+        <param>
+          <type><ref refid="classosm_1_1LaneletRelation" kindref="compound">LaneletRelation</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="106" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1abb7982fc426dbace24fc443f21910d4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1LaneletRelation" kindref="compound">LaneletRelation</ref> &amp;</type>
+        <definition>LaneletRelation&amp; osm::LaneletRelation::operator=</definition>
+        <argsstring>(const LaneletRelation &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classosm_1_1LaneletRelation" kindref="compound">LaneletRelation</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="107" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a36507c32904fe979118bc26b31097b80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1LaneletRelation" kindref="compound">LaneletRelation</ref> &amp;</type>
+        <definition>LaneletRelation&amp; osm::LaneletRelation::operator=</definition>
+        <argsstring>(LaneletRelation &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classosm_1_1LaneletRelation" kindref="compound">LaneletRelation</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="108" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a7278a382bfa132c2b0f37016c1d0cca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual osm::LaneletRelation::~LaneletRelation</definition>
+        <argsstring>()=default</argsstring>
+        <name>~LaneletRelation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="109" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a15c30af873a1fe2122a4a945c5f9bece" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classosm_1_1Way" kindref="compound">Way</ref> *</type>
+        <definition>Way* osm::LaneletRelation::left</definition>
+        <argsstring>() const</argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="112" column="9" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a556e308c9ec5dc97be1743b94ea20d36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classosm_1_1Way" kindref="compound">Way</ref> *</type>
+        <definition>Way* osm::LaneletRelation::right</definition>
+        <argsstring>() const</argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="113" column="9" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a89e353062c0f192f6ba385e1fd0171cf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>I64</type>
+        <definition>I64 osm::LaneletRelation::speed_limit</definition>
+        <argsstring>() const</argsstring>
+        <name>speed_limit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="114" column="9" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a83d3aa8909710e800fb5a3c0a09649c3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string osm::LaneletRelation::location</definition>
+        <argsstring>() const</argsstring>
+        <name>location</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="115" column="17" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a44419b737522c8ad6378d7739556a2bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool osm::LaneletRelation::one_way</definition>
+        <argsstring>() const</argsstring>
+        <name>one_way</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="116" column="10" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a769ca7f11f16dae15cfdde5b331b0ad5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string osm::LaneletRelation::turn_direction</definition>
+        <argsstring>() const</argsstring>
+        <name>turn_direction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="117" column="17" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1a7eaa6c5f3384c59ff06752d93148e8a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>visualization_msgs::msg::MarkerArray</type>
+        <definition>visualization_msgs::msg::MarkerArray osm::LaneletRelation::draw</definition>
+        <argsstring>(const std::string &amp;frame_id, const rclcpp::Time &amp;stamp, int &amp;marker_id, double line_width, double speed_color_max) const override</argsstring>
+        <name>draw</name>
+        <reimplements refid="classosm_1_1Relation_1a616768a4e9d1966745152589d54d112e">draw</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>frame_id</declname>
+        </param>
+        <param>
+          <type>const rclcpp::Time &amp;</type>
+          <declname>stamp</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>marker_id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>line_width</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>speed_color_max</declname>
+        </param>
+        <briefdescription>
+<para>Create visualization markers for this lanelet relation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinate frame. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stamp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current time stamp. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>marker_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A counter for unique marker IDs (which will be incremented). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>line_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired line width for drawing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>speed_color_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum speed used for color mapping. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>MarkerArray message with all markers for the relation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="129" column="42" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="129" bodyend="318"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classosm_1_1LaneletRelation_1af821a45c2837dd4ad7fd52a85da25a52" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>static float osm::LaneletRelation::mapval</definition>
+        <argsstring>(float value, float istart, float iend, float ostart, float oend)</argsstring>
+        <name>mapval</name>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>istart</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>iend</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ostart</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>oend</declname>
+        </param>
+        <briefdescription>
+<para>Maps a value from one range to another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>istart</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The lower bound of the input range. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iend</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The upper bound of the input range. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ostart</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The lower bound of the output range. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>oend</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The upper bound of the output range. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The mapped value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/Relation.hpp" line="340" column="18" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="340" bodyend="342"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class representing a lanelet relation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class not only contains lanelet–specific attributes but now also implements drawing of its own visualization markers. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>osm::Relation</label>
+        <link refid="classosm_1_1Relation"/>
+      </node>
+      <node id="1">
+        <label>osm::LaneletRelation</label>
+        <link refid="classosm_1_1LaneletRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>osm::Relation</label>
+        <link refid="classosm_1_1Relation"/>
+      </node>
+      <node id="1">
+        <label>osm::LaneletRelation</label>
+        <link refid="classosm_1_1LaneletRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/lanelet2_rviz2/Relation.hpp" line="102" column="1" bodyfile="include/lanelet2_rviz2/Relation.hpp" bodystart="102" bodyend="345"/>
+    <listofallmembers>
+      <member refid="classosm_1_1Relation_1acea6738f2f3012b741ca8d5de4a13fa2" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>add_tag</name></member>
+      <member refid="classosm_1_1Relation_1acea6738f2f3012b741ca8d5de4a13fa2" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>add_tag</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a7eaa6c5f3384c59ff06752d93148e8a8" prot="public" virt="virtual"><scope>osm::LaneletRelation</scope><name>draw</name></member>
+      <member refid="classosm_1_1Relation_1a4be2167c3c0187d9eff094a3bae6af23" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>getMemberByRole</name></member>
+      <member refid="classosm_1_1Relation_1a4be2167c3c0187d9eff094a3bae6af23" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>getMemberByRole</name></member>
+      <member refid="classosm_1_1Relation_1acfaeb44d79f1a1dd12e550f3280e8b31" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>id</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a4bb9d65ece5ea2a4803023b18cb3ecff" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>LaneletRelation</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a5e581b4adf448c62759667f03651ce16" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>LaneletRelation</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a00ee54e0f5c1b85f88653722f53a87b9" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>LaneletRelation</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a15c30af873a1fe2122a4a945c5f9bece" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>left</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a5f70b440dd67ff332d2ff8c572731291" prot="private" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>left_</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a83d3aa8909710e800fb5a3c0a09649c3" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>location</name></member>
+      <member refid="classosm_1_1LaneletRelation_1ab610b6f393639418125ec5bfb3dd9c05" prot="private" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>location_</name></member>
+      <member refid="classosm_1_1LaneletRelation_1af821a45c2837dd4ad7fd52a85da25a52" prot="private" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>mapval</name></member>
+      <member refid="classosm_1_1Relation_1a6f68f8eabb30f8994dc80ee834b901c0" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>members</name></member>
+      <member refid="classosm_1_1Relation_1a6f68f8eabb30f8994dc80ee834b901c0" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>members</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a44419b737522c8ad6378d7739556a2bc" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>one_way</name></member>
+      <member refid="classosm_1_1LaneletRelation_1ad7232caad4efd8a6e65fae4760f4bf7e" prot="private" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>one_way_</name></member>
+      <member refid="classosm_1_1LaneletRelation_1abb7982fc426dbace24fc443f21910d4e" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>operator=</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a36507c32904fe979118bc26b31097b80" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>operator=</name></member>
+      <member refid="classosm_1_1Relation_1a8a6bb22bff49096beaafc60e1065b634" prot="public" virt="non-virtual" ambiguityscope="osm::Relation::"><scope>osm::LaneletRelation</scope><name>operator=</name></member>
+      <member refid="classosm_1_1Relation_1a1c38289d269fb7d5033dc566a546db0b" prot="public" virt="non-virtual" ambiguityscope="osm::Relation::"><scope>osm::LaneletRelation</scope><name>operator=</name></member>
+      <member refid="classosm_1_1Relation_1acc8f814e8cd5dca820b2f5f2a52c9595" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>Relation</name></member>
+      <member refid="classosm_1_1Relation_1a9bceb88c6f6515b8d61cdacf9be9f1cc" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>Relation</name></member>
+      <member refid="classosm_1_1Relation_1a25528ada7790071f48b5a3bad7c5f604" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>Relation</name></member>
+      <member refid="classosm_1_1Relation_1a269ba07bae25e3f27361b8e763ffeb0f" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>Relation</name></member>
+      <member refid="classosm_1_1Relation_1a25528ada7790071f48b5a3bad7c5f604" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>Relation</name></member>
+      <member refid="classosm_1_1Relation_1acc8f814e8cd5dca820b2f5f2a52c9595" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>Relation</name></member>
+      <member refid="classosm_1_1Relation_1a9bceb88c6f6515b8d61cdacf9be9f1cc" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>Relation</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a556e308c9ec5dc97be1743b94ea20d36" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>right</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a5bc51ce65fb62d1cc096267395b5bdfd" prot="private" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>right_</name></member>
+      <member refid="classosm_1_1Relation_1ac55595760be59e3a75cbf493c25c2468" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>set_members</name></member>
+      <member refid="classosm_1_1Relation_1ac55595760be59e3a75cbf493c25c2468" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>set_members</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a89e353062c0f192f6ba385e1fd0171cf" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>speed_limit</name></member>
+      <member refid="classosm_1_1LaneletRelation_1af5bf041007061c8db427a1f8167259e3" prot="private" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>speed_limit_</name></member>
+      <member refid="classosm_1_1Relation_1a45bc304fc78d33c54e289beff072b22a" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>subtype</name></member>
+      <member refid="classosm_1_1Relation_1a1b9596c72730448dc76b211a0fcb52ad" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>tags</name></member>
+      <member refid="classosm_1_1Relation_1a1b9596c72730448dc76b211a0fcb52ad" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>tags</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a769ca7f11f16dae15cfdde5b331b0ad5" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>turn_direction</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a896d582c16b3039e0549f0b89dbee2c6" prot="private" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>turn_direction_</name></member>
+      <member refid="classosm_1_1Relation_1ae41f0016a6485daa39b4fc1b48a82f1f" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>type</name></member>
+      <member refid="classosm_1_1LaneletRelation_1a7278a382bfa132c2b0f37016c1d0cca4" prot="public" virt="virtual"><scope>osm::LaneletRelation</scope><name>~LaneletRelation</name></member>
+      <member refid="classosm_1_1Relation_1a479fb2c70e329048312c3468c3bcfbd1" prot="public" virt="non-virtual"><scope>osm::LaneletRelation</scope><name>~Relation</name></member>
+      <member refid="classosm_1_1Relation_1a817ee5089004165465cc9134781b698a" prot="public" virt="virtual"><scope>osm::LaneletRelation</scope><name>~Relation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

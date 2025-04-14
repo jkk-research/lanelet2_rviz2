@@ -1,0 +1,59 @@
+site_name: "lanelet2_rviz2 Documentation"
+
+
+theme:
+  name: material
+  language: en
+  highlightjs: true
+  features:
+    # - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+
+  palette:
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light-blue
+      accent: light-blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light-blue
+      accent: light-blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    
+  highlight:
+    default_language: cpp
+
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+repo_name: jkk-research / lanelet2_rviz2
+repo_url: https://github.com/jkk-research/lanelet2_rviz2
+
+copyright: Copyright © 2025 SZE-JKK
+
+
+plugins:
+  - search
+  - mkdoxy:
+      projects:
+        lanelet2_rviz2:
+          src-dirs: include/lanelet2_rviz2 src
+          full-doc: True
+          doxy-cfg:
+            FILE_PATTERNS: "*.hpp *.h *.cpp"
+            RECURSIVE: True
+            # ignore the rapidxml and earcut files
+            EXCLUDE_PATTERNS: "earcut.hpp* rapidxml.hpp* rapidxml_utils.hpp*"

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classosm_1_1MapElement" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>osm::MapElement</compoundname>
+    <includes refid="mapelement_8hpp" local="no">mapelement.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classosm_1_1MapElement_1a9db364e8fd88430583a30d8107c29adb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::MapElement::MapElement</definition>
+        <argsstring>()=default</argsstring>
+        <name>MapElement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/mapelement.hpp" line="16" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1MapElement_1a221bdc1532c5fe54d046b18c8e169f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::MapElement::MapElement</definition>
+        <argsstring>(const MapElement &amp;)=default</argsstring>
+        <name>MapElement</name>
+        <param>
+          <type>const <ref refid="classosm_1_1MapElement" kindref="compound">MapElement</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/mapelement.hpp" line="17" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1MapElement_1ad579c343894330dd50949e28d01cfbf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::MapElement::MapElement</definition>
+        <argsstring>(MapElement &amp;&amp;)=default</argsstring>
+        <name>MapElement</name>
+        <param>
+          <type><ref refid="classosm_1_1MapElement" kindref="compound">MapElement</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/mapelement.hpp" line="18" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1MapElement_1a039fd0dd09ec142d77ea12a2abd111d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1MapElement" kindref="compound">MapElement</ref> &amp;</type>
+        <definition>MapElement&amp; osm::MapElement::operator=</definition>
+        <argsstring>(const MapElement &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classosm_1_1MapElement" kindref="compound">MapElement</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/mapelement.hpp" line="19" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1MapElement_1a0171dd0a0c2ec5c2b9ff48fef58091be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1MapElement" kindref="compound">MapElement</ref> &amp;</type>
+        <definition>MapElement&amp; osm::MapElement::operator=</definition>
+        <argsstring>(MapElement &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classosm_1_1MapElement" kindref="compound">MapElement</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/mapelement.hpp" line="20" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1MapElement_1ad55be1469ce898e04ef7844ebe31c927" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual osm::MapElement::~MapElement</definition>
+        <argsstring>()=default</argsstring>
+        <name>~MapElement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/mapelement.hpp" line="22" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1MapElement_1af8bc7e8fe40ea2eec8ee15340c1c6c14" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void osm::MapElement::draw</definition>
+        <argsstring>() const =0</argsstring>
+        <name>draw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/mapelement.hpp" line="24" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract base class for map elements. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class serves as a base for all elements in the map that can be drawn, currently most relations, and specific ways. </para>
+    </detaileddescription>
+    <location file="include/lanelet2_rviz2/mapelement.hpp" line="14" column="1" bodyfile="include/lanelet2_rviz2/mapelement.hpp" bodystart="14" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classosm_1_1MapElement_1af8bc7e8fe40ea2eec8ee15340c1c6c14" prot="public" virt="pure-virtual"><scope>osm::MapElement</scope><name>draw</name></member>
+      <member refid="classosm_1_1MapElement_1a9db364e8fd88430583a30d8107c29adb" prot="public" virt="non-virtual"><scope>osm::MapElement</scope><name>MapElement</name></member>
+      <member refid="classosm_1_1MapElement_1a221bdc1532c5fe54d046b18c8e169f40" prot="public" virt="non-virtual"><scope>osm::MapElement</scope><name>MapElement</name></member>
+      <member refid="classosm_1_1MapElement_1ad579c343894330dd50949e28d01cfbf1" prot="public" virt="non-virtual"><scope>osm::MapElement</scope><name>MapElement</name></member>
+      <member refid="classosm_1_1MapElement_1a039fd0dd09ec142d77ea12a2abd111d1" prot="public" virt="non-virtual"><scope>osm::MapElement</scope><name>operator=</name></member>
+      <member refid="classosm_1_1MapElement_1a0171dd0a0c2ec5c2b9ff48fef58091be" prot="public" virt="non-virtual"><scope>osm::MapElement</scope><name>operator=</name></member>
+      <member refid="classosm_1_1MapElement_1ad55be1469ce898e04ef7844ebe31c927" prot="public" virt="virtual"><scope>osm::MapElement</scope><name>~MapElement</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

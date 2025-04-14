@@ -26,7 +26,7 @@ set(ament_dependencies
   visualization_msgs
 )
 
-add_executable(visualize_osm src/visualize_osm.cpp)
+add_executable(visualize_osm src/main.cpp src/OSMVisualizer.cpp)
 # target_include_directories(visualize_osm PUBLIC
 #   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 #   $<INSTALL_INTERFACE:include>)

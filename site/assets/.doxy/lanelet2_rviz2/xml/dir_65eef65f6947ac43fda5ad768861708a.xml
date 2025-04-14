@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_65eef65f6947ac43fda5ad768861708a" kind="dir">
+    <compoundname>include/lanelet2_rviz2</compoundname>
+    <innerfile refid="map_8hpp">map.hpp</innerfile>
+    <innerfile refid="mapelement_8hpp">mapelement.hpp</innerfile>
+    <innerfile refid="node_8hpp">node.hpp</innerfile>
+    <innerfile refid="oldrelation_8hpp">oldrelation.hpp</innerfile>
+    <innerfile refid="OSMVisualizer_8hpp">OSMVisualizer.hpp</innerfile>
+    <innerfile refid="parse__osm_8hpp">parse_osm.hpp</innerfile>
+    <innerfile refid="Relation_8hpp">Relation.hpp</innerfile>
+    <innerfile refid="triangulate__polygon_8hpp">triangulate_polygon.hpp</innerfile>
+    <innerfile refid="way_8hpp">way.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/lanelet2_rviz2/"/>
+  </compounddef>
+</doxygen>

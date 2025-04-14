@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceosm" kind="namespace" language="C++">
+    <compoundname>osm</compoundname>
+    <innerclass refid="classosm_1_1Map" prot="public">osm::Map</innerclass>
+    <innerclass refid="classosm_1_1MapElement" prot="public">osm::MapElement</innerclass>
+    <innerclass refid="classosm_1_1Node" prot="public">osm::Node</innerclass>
+    <innerclass refid="classosm_1_1Relation" prot="public">osm::Relation</innerclass>
+    <innerclass refid="classosm_1_1LaneletRelation" prot="public">osm::LaneletRelation</innerclass>
+    <innerclass refid="classosm_1_1Way" prot="public">osm::Way</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/lanelet2_rviz2/map.hpp" line="8" column="1"/>
+  </compounddef>
+</doxygen>

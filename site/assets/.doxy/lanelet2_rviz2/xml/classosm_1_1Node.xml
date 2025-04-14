@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classosm_1_1Node" kind="class" language="C++" prot="public">
+    <compoundname>osm::Node</compoundname>
+    <includes refid="node_8hpp" local="no">node.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classosm_1_1Node_1a818a3c27aeb13185fb92d558a7b6ab7c" prot="private" static="no" mutable="no">
+        <type>I64</type>
+        <definition>I64 osm::Node::id_</definition>
+        <argsstring></argsstring>
+        <name>id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="37" column="9" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1Node_1a14c391f2532f928159bb69f5fcddb7f7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double osm::Node::lat_</definition>
+        <argsstring></argsstring>
+        <name>lat_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="38" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1Node_1aa5f2e7d7e38b1d052276960c25534038" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double osm::Node::lon_</definition>
+        <argsstring></argsstring>
+        <name>lon_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="39" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1Node_1a2bee49a4165f4965f9eab74efa4da277" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double osm::Node::local_x_</definition>
+        <argsstring></argsstring>
+        <name>local_x_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="40" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1Node_1ab88b33cf135296f4d211ef10dcfe5cf4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double osm::Node::local_y_</definition>
+        <argsstring></argsstring>
+        <name>local_y_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="41" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1Node_1a54b7204de3fb1d80c1c2d369a235f7da" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double osm::Node::ele_</definition>
+        <argsstring></argsstring>
+        <name>ele_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="42" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classosm_1_1Node_1a697b814e91615d08d8739c550bfda47d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::Node::Node</definition>
+        <argsstring>(const Node &amp;)=default</argsstring>
+        <name>Node</name>
+        <param>
+          <type>const <ref refid="classosm_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="17" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a35fffa0cd1aa8771276bdd5d45440965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::Node::Node</definition>
+        <argsstring>(Node &amp;&amp;)=default</argsstring>
+        <name>Node</name>
+        <param>
+          <type><ref refid="classosm_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="18" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1ae62176dcf35864c13090678cfa70e229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        <definition>Node&amp; osm::Node::operator=</definition>
+        <argsstring>(const Node &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classosm_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="19" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a3126b176cb5729c93e8137192a79fbb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        <definition>Node&amp; osm::Node::operator=</definition>
+        <argsstring>(Node &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classosm_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="20" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a04c626252ff68c38267bd158b4bb650a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::Node::~Node</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="21" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a60bfe22c31a8c98c01078de47db532b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>osm::Node::Node</definition>
+        <argsstring>(I64 id, double lat, double lon, double local_x, double local_y, double ele)</argsstring>
+        <name>Node</name>
+        <param>
+          <type>I64</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lat</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lon</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>local_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>local_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ele</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="23" column="5" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="23" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1ac3a9aa555fec1a5d76009eee6542daff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>I64</type>
+        <definition>I64 osm::Node::id</definition>
+        <argsstring>() const</argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="26" column="9" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1af7ca440e38e6192dc93cdf0ffb12ff2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double osm::Node::lat</definition>
+        <argsstring>() const</argsstring>
+        <name>lat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="27" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a834682c3d5d94262640668997f8d5d16" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double osm::Node::lon</definition>
+        <argsstring>() const</argsstring>
+        <name>lon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="28" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a73bbeb41942d481a797928c4f0c57241" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double osm::Node::local_x</definition>
+        <argsstring>() const</argsstring>
+        <name>local_x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="29" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a1f9b2265d62c947a4721da6acee27bf0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double osm::Node::local_y</definition>
+        <argsstring>() const</argsstring>
+        <name>local_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="30" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1aa2243f3a07df11b7c4b976b37d07babb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double osm::Node::ele</definition>
+        <argsstring>() const</argsstring>
+        <name>ele</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="31" column="12" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a8338bc986130367df7932a6658716476" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void osm::Node::set_local_x</definition>
+        <argsstring>(double local_x)</argsstring>
+        <name>set_local_x</name>
+        <param>
+          <type>double</type>
+          <declname>local_x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="33" column="10" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Node_1a766be4ad5623310efca664df01595728" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void osm::Node::set_local_y</definition>
+        <argsstring>(double local_y)</argsstring>
+        <name>set_local_y</name>
+        <param>
+          <type>double</type>
+          <declname>local_y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/node.hpp" line="34" column="10" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to store a single lanelet2 OSM node. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/lanelet2_rviz2/node.hpp" line="15" column="1" bodyfile="include/lanelet2_rviz2/node.hpp" bodystart="15" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classosm_1_1Node_1aa2243f3a07df11b7c4b976b37d07babb" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>ele</name></member>
+      <member refid="classosm_1_1Node_1a54b7204de3fb1d80c1c2d369a235f7da" prot="private" virt="non-virtual"><scope>osm::Node</scope><name>ele_</name></member>
+      <member refid="classosm_1_1Node_1ac3a9aa555fec1a5d76009eee6542daff" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>id</name></member>
+      <member refid="classosm_1_1Node_1a818a3c27aeb13185fb92d558a7b6ab7c" prot="private" virt="non-virtual"><scope>osm::Node</scope><name>id_</name></member>
+      <member refid="classosm_1_1Node_1af7ca440e38e6192dc93cdf0ffb12ff2d" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>lat</name></member>
+      <member refid="classosm_1_1Node_1a14c391f2532f928159bb69f5fcddb7f7" prot="private" virt="non-virtual"><scope>osm::Node</scope><name>lat_</name></member>
+      <member refid="classosm_1_1Node_1a73bbeb41942d481a797928c4f0c57241" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>local_x</name></member>
+      <member refid="classosm_1_1Node_1a2bee49a4165f4965f9eab74efa4da277" prot="private" virt="non-virtual"><scope>osm::Node</scope><name>local_x_</name></member>
+      <member refid="classosm_1_1Node_1a1f9b2265d62c947a4721da6acee27bf0" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>local_y</name></member>
+      <member refid="classosm_1_1Node_1ab88b33cf135296f4d211ef10dcfe5cf4" prot="private" virt="non-virtual"><scope>osm::Node</scope><name>local_y_</name></member>
+      <member refid="classosm_1_1Node_1a834682c3d5d94262640668997f8d5d16" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>lon</name></member>
+      <member refid="classosm_1_1Node_1aa5f2e7d7e38b1d052276960c25534038" prot="private" virt="non-virtual"><scope>osm::Node</scope><name>lon_</name></member>
+      <member refid="classosm_1_1Node_1a697b814e91615d08d8739c550bfda47d" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>Node</name></member>
+      <member refid="classosm_1_1Node_1a35fffa0cd1aa8771276bdd5d45440965" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>Node</name></member>
+      <member refid="classosm_1_1Node_1a60bfe22c31a8c98c01078de47db532b0" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>Node</name></member>
+      <member refid="classosm_1_1Node_1ae62176dcf35864c13090678cfa70e229" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>operator=</name></member>
+      <member refid="classosm_1_1Node_1a3126b176cb5729c93e8137192a79fbb0" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>operator=</name></member>
+      <member refid="classosm_1_1Node_1a8338bc986130367df7932a6658716476" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>set_local_x</name></member>
+      <member refid="classosm_1_1Node_1a766be4ad5623310efca664df01595728" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>set_local_y</name></member>
+      <member refid="classosm_1_1Node_1a04c626252ff68c38267bd158b4bb650a" prot="public" virt="non-virtual"><scope>osm::Node</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

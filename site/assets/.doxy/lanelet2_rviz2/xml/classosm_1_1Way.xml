@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classosm_1_1Way" kind="class" language="C++" prot="public">
+    <compoundname>osm::Way</compoundname>
+    <includes refid="way_8hpp" local="no">way.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classosm_1_1Way_1abb378649374c8b279e0c1b0080088a3f" prot="private" static="no" mutable="no">
+        <type>I64</type>
+        <definition>I64 osm::Way::id_</definition>
+        <argsstring></argsstring>
+        <name>id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="46" column="9" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1Way_1a941bd5989f33d89694c7bd6a13c1839f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classosm_1_1Node" kindref="compound">osm::Node</ref> * &gt;</type>
+        <definition>std::vector&lt;osm::Node*&gt; osm::Way::nodes_</definition>
+        <argsstring></argsstring>
+        <name>nodes_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="47" column="17" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classosm_1_1Way_1abfd080e657d2f664eb69d6f113665ed0" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; osm::Way::tags_</definition>
+        <argsstring></argsstring>
+        <name>tags_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="49" column="14" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classosm_1_1Way_1a037efe6256751778120202285adf95c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::Way::Way</definition>
+        <argsstring>(const Way &amp;)=default</argsstring>
+        <name>Way</name>
+        <param>
+          <type>const <ref refid="classosm_1_1Way" kindref="compound">Way</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="21" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1a6ba714a76da4b3f85f5f308c7fb3d50f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::Way::Way</definition>
+        <argsstring>(Way &amp;&amp;)=default</argsstring>
+        <name>Way</name>
+        <param>
+          <type><ref refid="classosm_1_1Way" kindref="compound">Way</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="22" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1ad4858a3210367b1b36091de2001a0251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1Way" kindref="compound">Way</ref> &amp;</type>
+        <definition>Way&amp; osm::Way::operator=</definition>
+        <argsstring>(const Way &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classosm_1_1Way" kindref="compound">Way</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1a220284ca9093bee1a4b0fb077ab12fa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classosm_1_1Way" kindref="compound">Way</ref> &amp;</type>
+        <definition>Way&amp; osm::Way::operator=</definition>
+        <argsstring>(Way &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classosm_1_1Way" kindref="compound">Way</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="24" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1af29125a33edf7790b403b7826041fe77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>osm::Way::~Way</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Way</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="25" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1a7be0be263f7e2573e5fde715d7da7f1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>osm::Way::Way</definition>
+        <argsstring>(I64 id)</argsstring>
+        <name>Way</name>
+        <param>
+          <type>I64</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="27" column="5" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1a18f25f4168ab29b883c486ef71fa890e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>I64</type>
+        <definition>I64 osm::Way::id</definition>
+        <argsstring>() const</argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="29" column="9" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1adf6e65dda43509192161e1b6a2eb2bd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void osm::Way::add_node</definition>
+        <argsstring>(osm::Node *node)</argsstring>
+        <name>add_node</name>
+        <param>
+          <type><ref refid="classosm_1_1Node" kindref="compound">osm::Node</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="31" column="10" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1ab49a7854cb1d6064d6c6ceaa454472b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="classosm_1_1Node" kindref="compound">osm::Node</ref> * &gt; &amp;</type>
+        <definition>const std::vector&lt;osm::Node*&gt;&amp; osm::Way::nodes</definition>
+        <argsstring>() const</argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="33" column="23" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1a19cf7957ecf491073ffe27ce727632bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void osm::Way::add_tag</definition>
+        <argsstring>(const std::string &amp;key, const std::string &amp;value)</argsstring>
+        <name>add_tag</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="36" column="10" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="36" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classosm_1_1Way_1aedd8b72546db12c163bc5e1b989b6037" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::map&lt; std::string, std::string &gt; &amp;</type>
+        <definition>const std::map&lt;std::string, std::string&gt;&amp; osm::Way::tags</definition>
+        <argsstring>() const</argsstring>
+        <name>tags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/way.hpp" line="41" column="20" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to store a single lanelet2 OSM way, which is a collection of nodes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/lanelet2_rviz2/way.hpp" line="19" column="1" bodyfile="include/lanelet2_rviz2/way.hpp" bodystart="19" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classosm_1_1Way_1adf6e65dda43509192161e1b6a2eb2bd9" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>add_node</name></member>
+      <member refid="classosm_1_1Way_1a19cf7957ecf491073ffe27ce727632bd" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>add_tag</name></member>
+      <member refid="classosm_1_1Way_1a18f25f4168ab29b883c486ef71fa890e" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>id</name></member>
+      <member refid="classosm_1_1Way_1abb378649374c8b279e0c1b0080088a3f" prot="private" virt="non-virtual"><scope>osm::Way</scope><name>id_</name></member>
+      <member refid="classosm_1_1Way_1ab49a7854cb1d6064d6c6ceaa454472b1" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>nodes</name></member>
+      <member refid="classosm_1_1Way_1a941bd5989f33d89694c7bd6a13c1839f" prot="private" virt="non-virtual"><scope>osm::Way</scope><name>nodes_</name></member>
+      <member refid="classosm_1_1Way_1ad4858a3210367b1b36091de2001a0251" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>operator=</name></member>
+      <member refid="classosm_1_1Way_1a220284ca9093bee1a4b0fb077ab12fa3" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>operator=</name></member>
+      <member refid="classosm_1_1Way_1aedd8b72546db12c163bc5e1b989b6037" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>tags</name></member>
+      <member refid="classosm_1_1Way_1abfd080e657d2f664eb69d6f113665ed0" prot="private" virt="non-virtual"><scope>osm::Way</scope><name>tags_</name></member>
+      <member refid="classosm_1_1Way_1a037efe6256751778120202285adf95c8" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>Way</name></member>
+      <member refid="classosm_1_1Way_1a6ba714a76da4b3f85f5f308c7fb3d50f" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>Way</name></member>
+      <member refid="classosm_1_1Way_1a7be0be263f7e2573e5fde715d7da7f1a" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>Way</name></member>
+      <member refid="classosm_1_1Way_1af29125a33edf7790b403b7826041fe77" prot="public" virt="non-virtual"><scope>osm::Way</scope><name>~Way</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

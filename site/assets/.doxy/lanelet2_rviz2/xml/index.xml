@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classosm_1_1LaneletRelation" kind="class"><name>osm::LaneletRelation</name>
+    <member refid="classosm_1_1LaneletRelation_1a5f70b440dd67ff332d2ff8c572731291" kind="variable"><name>left_</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a5bc51ce65fb62d1cc096267395b5bdfd" kind="variable"><name>right_</name></member>
+    <member refid="classosm_1_1LaneletRelation_1af5bf041007061c8db427a1f8167259e3" kind="variable"><name>speed_limit_</name></member>
+    <member refid="classosm_1_1LaneletRelation_1ab610b6f393639418125ec5bfb3dd9c05" kind="variable"><name>location_</name></member>
+    <member refid="classosm_1_1LaneletRelation_1ad7232caad4efd8a6e65fae4760f4bf7e" kind="variable"><name>one_way_</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a896d582c16b3039e0549f0b89dbee2c6" kind="variable"><name>turn_direction_</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a4bb9d65ece5ea2a4803023b18cb3ecff" kind="function"><name>LaneletRelation</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a5e581b4adf448c62759667f03651ce16" kind="function"><name>LaneletRelation</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a00ee54e0f5c1b85f88653722f53a87b9" kind="function"><name>LaneletRelation</name></member>
+    <member refid="classosm_1_1LaneletRelation_1abb7982fc426dbace24fc443f21910d4e" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a36507c32904fe979118bc26b31097b80" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a7278a382bfa132c2b0f37016c1d0cca4" kind="function"><name>~LaneletRelation</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a15c30af873a1fe2122a4a945c5f9bece" kind="function"><name>left</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a556e308c9ec5dc97be1743b94ea20d36" kind="function"><name>right</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a89e353062c0f192f6ba385e1fd0171cf" kind="function"><name>speed_limit</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a83d3aa8909710e800fb5a3c0a09649c3" kind="function"><name>location</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a44419b737522c8ad6378d7739556a2bc" kind="function"><name>one_way</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a769ca7f11f16dae15cfdde5b331b0ad5" kind="function"><name>turn_direction</name></member>
+    <member refid="classosm_1_1LaneletRelation_1a7eaa6c5f3384c59ff06752d93148e8a8" kind="function"><name>draw</name></member>
+    <member refid="classosm_1_1LaneletRelation_1af821a45c2837dd4ad7fd52a85da25a52" kind="function"><name>mapval</name></member>
+  </compound>
+  <compound refid="classosm_1_1Map" kind="class"><name>osm::Map</name>
+    <member refid="classosm_1_1Map_1a9a79a617595b9f8af70fabf93155a75a" kind="variable"><name>xml_version</name></member>
+    <member refid="classosm_1_1Map_1ad550b48ae2e651decec00cf30cef07cf" kind="variable"><name>xml_encoding</name></member>
+    <member refid="classosm_1_1Map_1a30b165ffdabb037d2c368668816fe36f" kind="variable"><name>osm_generator</name></member>
+    <member refid="classosm_1_1Map_1ac8ddda7fb007f090b427be768cd1bf67" kind="variable"><name>metainfo_format_version</name></member>
+    <member refid="classosm_1_1Map_1aa3c6145c966b652170a7624238843feb" kind="variable"><name>metainfo_map_version</name></member>
+    <member refid="classosm_1_1Map_1a69be7b25ae9b50a6246e3b5c9be7f25a" kind="variable"><name>nodes</name></member>
+    <member refid="classosm_1_1Map_1a82e000b4116cc6a6930221f430d67353" kind="variable"><name>ways</name></member>
+    <member refid="classosm_1_1Map_1a3296671bdbbab460e97b064474d01bdf" kind="variable"><name>relations</name></member>
+    <member refid="classosm_1_1Map_1afa71b0971a7cbb8561027542fa5bc6c3" kind="function"><name>Map</name></member>
+    <member refid="classosm_1_1Map_1a75efb010ef6dd4f2c53494f498c8d7ae" kind="function"><name>Map</name></member>
+    <member refid="classosm_1_1Map_1a5928502647915b51f9bf6dd8d9acea6e" kind="function"><name>Map</name></member>
+    <member refid="classosm_1_1Map_1aa218afb7f48c621a356c259fe393e0e2" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Map_1a64623e856d65ef237ee751fdb5255e0f" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Map_1a400a7d5393b5b3641565199195287c1d" kind="function"><name>~Map</name></member>
+  </compound>
+  <compound refid="classosm_1_1MapElement" kind="class"><name>osm::MapElement</name>
+    <member refid="classosm_1_1MapElement_1a9db364e8fd88430583a30d8107c29adb" kind="function"><name>MapElement</name></member>
+    <member refid="classosm_1_1MapElement_1a221bdc1532c5fe54d046b18c8e169f40" kind="function"><name>MapElement</name></member>
+    <member refid="classosm_1_1MapElement_1ad579c343894330dd50949e28d01cfbf1" kind="function"><name>MapElement</name></member>
+    <member refid="classosm_1_1MapElement_1a039fd0dd09ec142d77ea12a2abd111d1" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1MapElement_1a0171dd0a0c2ec5c2b9ff48fef58091be" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1MapElement_1ad55be1469ce898e04ef7844ebe31c927" kind="function"><name>~MapElement</name></member>
+    <member refid="classosm_1_1MapElement_1af8bc7e8fe40ea2eec8ee15340c1c6c14" kind="function"><name>draw</name></member>
+  </compound>
+  <compound refid="structosm_1_1Relation_1_1Member" kind="struct"><name>osm::Relation::Member</name>
+    <member refid="structosm_1_1Relation_1_1Member_1a9ec9c4597cbbb2551f534c7db703dce5" kind="variable"><name>type</name></member>
+    <member refid="structosm_1_1Relation_1_1Member_1a856f8d43d573d6c32127d771c266d975" kind="variable"><name>role</name></member>
+    <member refid="structosm_1_1Relation_1_1Member_1a308bfc7eaa8a9fc4ef2e72a43f8f6402" kind="variable"><name>ref</name></member>
+  </compound>
+  <compound refid="classosm_1_1Node" kind="class"><name>osm::Node</name>
+    <member refid="classosm_1_1Node_1a818a3c27aeb13185fb92d558a7b6ab7c" kind="variable"><name>id_</name></member>
+    <member refid="classosm_1_1Node_1a14c391f2532f928159bb69f5fcddb7f7" kind="variable"><name>lat_</name></member>
+    <member refid="classosm_1_1Node_1aa5f2e7d7e38b1d052276960c25534038" kind="variable"><name>lon_</name></member>
+    <member refid="classosm_1_1Node_1a2bee49a4165f4965f9eab74efa4da277" kind="variable"><name>local_x_</name></member>
+    <member refid="classosm_1_1Node_1ab88b33cf135296f4d211ef10dcfe5cf4" kind="variable"><name>local_y_</name></member>
+    <member refid="classosm_1_1Node_1a54b7204de3fb1d80c1c2d369a235f7da" kind="variable"><name>ele_</name></member>
+    <member refid="classosm_1_1Node_1a697b814e91615d08d8739c550bfda47d" kind="function"><name>Node</name></member>
+    <member refid="classosm_1_1Node_1a35fffa0cd1aa8771276bdd5d45440965" kind="function"><name>Node</name></member>
+    <member refid="classosm_1_1Node_1ae62176dcf35864c13090678cfa70e229" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Node_1a3126b176cb5729c93e8137192a79fbb0" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Node_1a04c626252ff68c38267bd158b4bb650a" kind="function"><name>~Node</name></member>
+    <member refid="classosm_1_1Node_1a60bfe22c31a8c98c01078de47db532b0" kind="function"><name>Node</name></member>
+    <member refid="classosm_1_1Node_1ac3a9aa555fec1a5d76009eee6542daff" kind="function"><name>id</name></member>
+    <member refid="classosm_1_1Node_1af7ca440e38e6192dc93cdf0ffb12ff2d" kind="function"><name>lat</name></member>
+    <member refid="classosm_1_1Node_1a834682c3d5d94262640668997f8d5d16" kind="function"><name>lon</name></member>
+    <member refid="classosm_1_1Node_1a73bbeb41942d481a797928c4f0c57241" kind="function"><name>local_x</name></member>
+    <member refid="classosm_1_1Node_1a1f9b2265d62c947a4721da6acee27bf0" kind="function"><name>local_y</name></member>
+    <member refid="classosm_1_1Node_1aa2243f3a07df11b7c4b976b37d07babb" kind="function"><name>ele</name></member>
+    <member refid="classosm_1_1Node_1a8338bc986130367df7932a6658716476" kind="function"><name>set_local_x</name></member>
+    <member refid="classosm_1_1Node_1a766be4ad5623310efca664df01595728" kind="function"><name>set_local_y</name></member>
+  </compound>
+  <compound refid="classOSMVisualizer" kind="class"><name>OSMVisualizer</name>
+    <member refid="classOSMVisualizer_1a68a469e0eda03f1e90ee577dfa85868f" kind="variable"><name>nodes_</name></member>
+    <member refid="classOSMVisualizer_1a764c2f88068ecef895b56348779e8b62" kind="variable"><name>ways_</name></member>
+    <member refid="classOSMVisualizer_1a88cf5ca4a902b5c99786f2f774a21bbf" kind="variable"><name>relations_</name></member>
+    <member refid="classOSMVisualizer_1ae403dd140d0dc812fd4d886a39a95e97" kind="variable"><name>marker_array_relations_pub_</name></member>
+    <member refid="classOSMVisualizer_1accb28583089cfa36ab6511584cf16e22" kind="variable"><name>timer_</name></member>
+    <member refid="classOSMVisualizer_1ab3757aa77176d4e132731d113ddb463c" kind="variable"><name>on_set_parameters_callback_handle_</name></member>
+    <member refid="classOSMVisualizer_1ac33740995bf20239d6fcc66bce9458f5" kind="variable"><name>center_x_</name></member>
+    <member refid="classOSMVisualizer_1acdb3112f251fff21f8c3210755059eb9" kind="variable"><name>center_y_</name></member>
+    <member refid="classOSMVisualizer_1adf526875ec25dea3d5de5c941880c24e" kind="variable"><name>data_loaded_</name></member>
+    <member refid="classOSMVisualizer_1abf00a8e7ff4a78f0a7ee18ca6943f0e2" kind="variable"><name>line_width_</name></member>
+    <member refid="classOSMVisualizer_1a8388c86ca8d481ca1f5b367e4e22546d" kind="variable"><name>frame_id_</name></member>
+    <member refid="classOSMVisualizer_1a869d29141997e7853eec4d3de4297391" kind="variable"><name>filename_</name></member>
+    <member refid="classOSMVisualizer_1a5fa7d878138f6ac1db4bd37b7e63607e" kind="variable"><name>center_map_</name></member>
+    <member refid="classOSMVisualizer_1a1cf6c5fe84b7cd12b8ea9734c175487c" kind="variable"><name>speed_color_max_</name></member>
+    <member refid="classOSMVisualizer_1a81e41bc7ab8f5377890547fbe4d17859" kind="function"><name>OSMVisualizer</name></member>
+    <member refid="classOSMVisualizer_1a83645ca88d4be7414ab20ca5beb2b8d2" kind="function"><name>parametersCallback</name></member>
+    <member refid="classOSMVisualizer_1a853d404a1c7beacaf0a7f18be636ae06" kind="function"><name>centerCoordinates</name></member>
+    <member refid="classOSMVisualizer_1a659302d31591e715ef18912f00eb9b20" kind="function"><name>mapval</name></member>
+    <member refid="classOSMVisualizer_1a326fb803a8f8404c3c07da1c096db4c7" kind="function"><name>publishMarkers</name></member>
+    <member refid="classOSMVisualizer_1a6bb3fb2ec277bde328dcfac37620f172" kind="function"><name>clearData</name></member>
+    <member refid="classOSMVisualizer_1aa823092165a58ef64698846748d392ca" kind="function"><name>parseOSMFile</name></member>
+  </compound>
+  <compound refid="classosm_1_1Relation" kind="class"><name>osm::Relation</name>
+    <member refid="classosm_1_1Relation_1a7bcdb049dc78c8d92aab2e95c188b561" kind="variable"><name>id_</name></member>
+    <member refid="classosm_1_1Relation_1a1deef20a80a2cb16697b94371ef59b80" kind="variable"><name>left_</name></member>
+    <member refid="classosm_1_1Relation_1a41416bb6e44384e7be9631d7f28a165e" kind="variable"><name>right_</name></member>
+    <member refid="classosm_1_1Relation_1afdce64172a39539d8842b0dbd27ce862" kind="variable"><name>type_</name></member>
+    <member refid="classosm_1_1Relation_1a8f83dd6ccdce7a8dd2a5bae5ec883cca" kind="variable"><name>subtype_</name></member>
+    <member refid="classosm_1_1Relation_1a053625dece6eb5486b6127dcf19c556f" kind="variable"><name>speed_limit_</name></member>
+    <member refid="classosm_1_1Relation_1aaccb84ebc44ef737567557b40cf2f024" kind="variable"><name>location_</name></member>
+    <member refid="classosm_1_1Relation_1a59c7dfd070ebe55a6ea0835c828d16bf" kind="variable"><name>one_way_</name></member>
+    <member refid="classosm_1_1Relation_1a6f99874878fd7217e84f46fe64685471" kind="variable"><name>members_</name></member>
+    <member refid="classosm_1_1Relation_1afd1f63e13c6e0b2dc295369b4401b198" kind="variable"><name>tags_</name></member>
+    <member refid="classosm_1_1Relation_1acc8f814e8cd5dca820b2f5f2a52c9595" kind="function"><name>Relation</name></member>
+    <member refid="classosm_1_1Relation_1a9bceb88c6f6515b8d61cdacf9be9f1cc" kind="function"><name>Relation</name></member>
+    <member refid="classosm_1_1Relation_1a8a6bb22bff49096beaafc60e1065b634" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Relation_1a1c38289d269fb7d5033dc566a546db0b" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Relation_1a479fb2c70e329048312c3468c3bcfbd1" kind="function"><name>~Relation</name></member>
+    <member refid="classosm_1_1Relation_1a25528ada7790071f48b5a3bad7c5f604" kind="function"><name>Relation</name></member>
+    <member refid="classosm_1_1Relation_1acfaeb44d79f1a1dd12e550f3280e8b31" kind="function"><name>id</name></member>
+    <member refid="classosm_1_1Relation_1a100c8ce4c17fda148ecceaae77620bca" kind="function"><name>left</name></member>
+    <member refid="classosm_1_1Relation_1ae496339229f0749e2cf8d5da07705e3b" kind="function"><name>right</name></member>
+    <member refid="classosm_1_1Relation_1ae41f0016a6485daa39b4fc1b48a82f1f" kind="function"><name>type</name></member>
+    <member refid="classosm_1_1Relation_1a45bc304fc78d33c54e289beff072b22a" kind="function"><name>subtype</name></member>
+    <member refid="classosm_1_1Relation_1a6011c233fb22701a2f72c57fc0a2cc87" kind="function"><name>speed_limit</name></member>
+    <member refid="classosm_1_1Relation_1a3262cd3a200a3e943e5b7f1c82f2d67c" kind="function"><name>location</name></member>
+    <member refid="classosm_1_1Relation_1abc663471fe30499ae1c1dc8181cbf280" kind="function"><name>one_way</name></member>
+    <member refid="classosm_1_1Relation_1ac55595760be59e3a75cbf493c25c2468" kind="function"><name>set_members</name></member>
+    <member refid="classosm_1_1Relation_1a6f68f8eabb30f8994dc80ee834b901c0" kind="function"><name>members</name></member>
+    <member refid="classosm_1_1Relation_1acea6738f2f3012b741ca8d5de4a13fa2" kind="function"><name>add_tag</name></member>
+    <member refid="classosm_1_1Relation_1a1b9596c72730448dc76b211a0fcb52ad" kind="function"><name>tags</name></member>
+    <member refid="classosm_1_1Relation_1a4be2167c3c0187d9eff094a3bae6af23" kind="function"><name>getMemberByRole</name></member>
+    <member refid="classosm_1_1Relation_1a269ba07bae25e3f27361b8e763ffeb0f" kind="function"><name>Relation</name></member>
+    <member refid="classosm_1_1Relation_1a25528ada7790071f48b5a3bad7c5f604" kind="function"><name>Relation</name></member>
+    <member refid="classosm_1_1Relation_1acc8f814e8cd5dca820b2f5f2a52c9595" kind="function"><name>Relation</name></member>
+    <member refid="classosm_1_1Relation_1a9bceb88c6f6515b8d61cdacf9be9f1cc" kind="function"><name>Relation</name></member>
+    <member refid="classosm_1_1Relation_1a8a6bb22bff49096beaafc60e1065b634" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Relation_1a1c38289d269fb7d5033dc566a546db0b" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Relation_1a817ee5089004165465cc9134781b698a" kind="function"><name>~Relation</name></member>
+    <member refid="classosm_1_1Relation_1a616768a4e9d1966745152589d54d112e" kind="function"><name>draw</name></member>
+    <member refid="classosm_1_1Relation_1ac55595760be59e3a75cbf493c25c2468" kind="function"><name>set_members</name></member>
+    <member refid="classosm_1_1Relation_1a6f68f8eabb30f8994dc80ee834b901c0" kind="function"><name>members</name></member>
+    <member refid="classosm_1_1Relation_1acea6738f2f3012b741ca8d5de4a13fa2" kind="function"><name>add_tag</name></member>
+    <member refid="classosm_1_1Relation_1a1b9596c72730448dc76b211a0fcb52ad" kind="function"><name>tags</name></member>
+    <member refid="classosm_1_1Relation_1a4be2167c3c0187d9eff094a3bae6af23" kind="function"><name>getMemberByRole</name></member>
+  </compound>
+  <compound refid="classosm_1_1Way" kind="class"><name>osm::Way</name>
+    <member refid="classosm_1_1Way_1abb378649374c8b279e0c1b0080088a3f" kind="variable"><name>id_</name></member>
+    <member refid="classosm_1_1Way_1a941bd5989f33d89694c7bd6a13c1839f" kind="variable"><name>nodes_</name></member>
+    <member refid="classosm_1_1Way_1abfd080e657d2f664eb69d6f113665ed0" kind="variable"><name>tags_</name></member>
+    <member refid="classosm_1_1Way_1a037efe6256751778120202285adf95c8" kind="function"><name>Way</name></member>
+    <member refid="classosm_1_1Way_1a6ba714a76da4b3f85f5f308c7fb3d50f" kind="function"><name>Way</name></member>
+    <member refid="classosm_1_1Way_1ad4858a3210367b1b36091de2001a0251" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Way_1a220284ca9093bee1a4b0fb077ab12fa3" kind="function"><name>operator=</name></member>
+    <member refid="classosm_1_1Way_1af29125a33edf7790b403b7826041fe77" kind="function"><name>~Way</name></member>
+    <member refid="classosm_1_1Way_1a7be0be263f7e2573e5fde715d7da7f1a" kind="function"><name>Way</name></member>
+    <member refid="classosm_1_1Way_1a18f25f4168ab29b883c486ef71fa890e" kind="function"><name>id</name></member>
+    <member refid="classosm_1_1Way_1adf6e65dda43509192161e1b6a2eb2bd9" kind="function"><name>add_node</name></member>
+    <member refid="classosm_1_1Way_1ab49a7854cb1d6064d6c6ceaa454472b1" kind="function"><name>nodes</name></member>
+    <member refid="classosm_1_1Way_1a19cf7957ecf491073ffe27ce727632bd" kind="function"><name>add_tag</name></member>
+    <member refid="classosm_1_1Way_1aedd8b72546db12c163bc5e1b989b6037" kind="function"><name>tags</name></member>
+  </compound>
+  <compound refid="namespaceosm" kind="namespace"><name>osm</name>
+  </compound>
+  <compound refid="namespacerclcpp" kind="namespace"><name>rclcpp</name>
+  </compound>
+  <compound refid="namespacestd_1_1chrono__literals" kind="namespace"><name>std::chrono_literals</name>
+  </compound>
+  <compound refid="map_8hpp" kind="file"><name>map.hpp</name>
+  </compound>
+  <compound refid="mapelement_8hpp" kind="file"><name>mapelement.hpp</name>
+  </compound>
+  <compound refid="node_8hpp" kind="file"><name>node.hpp</name>
+    <member refid="node_8hpp_1a907df15e105ff72c31588beca923e955" kind="typedef"><name>I64</name></member>
+  </compound>
+  <compound refid="oldrelation_8hpp" kind="file"><name>oldrelation.hpp</name>
+    <member refid="oldrelation_8hpp_1a907df15e105ff72c31588beca923e955" kind="typedef"><name>I64</name></member>
+  </compound>
+  <compound refid="OSMVisualizer_8hpp" kind="file"><name>OSMVisualizer.hpp</name>
+    <member refid="OSMVisualizer_8hpp_1a907df15e105ff72c31588beca923e955" kind="typedef"><name>I64</name></member>
+  </compound>
+  <compound refid="parse__osm_8hpp" kind="file"><name>parse_osm.hpp</name>
+  </compound>
+  <compound refid="Relation_8hpp" kind="file"><name>Relation.hpp</name>
+  </compound>
+  <compound refid="triangulate__polygon_8hpp" kind="file"><name>triangulate_polygon.hpp</name>
+    <member refid="triangulate__polygon_8hpp_1a798cee34da62c070a3f18397eca4447c" kind="function"><name>triangulatePolygon</name></member>
+  </compound>
+  <compound refid="way_8hpp" kind="file"><name>way.hpp</name>
+    <member refid="way_8hpp_1a907df15e105ff72c31588beca923e955" kind="typedef"><name>I64</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="OSMVisualizer_8cpp" kind="file"><name>OSMVisualizer.cpp</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_65eef65f6947ac43fda5ad768861708a" kind="dir"><name>include/lanelet2_rviz2</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

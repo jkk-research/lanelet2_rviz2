@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classOSMVisualizer" kind="class" language="C++" prot="public">
+    <compoundname>OSMVisualizer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">rclcpp::Node</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classOSMVisualizer_1a68a469e0eda03f1e90ee577dfa85868f" prot="private" static="no" mutable="no">
+        <type>std::map&lt; I64, <ref refid="classosm_1_1Node" kindref="compound">osm::Node</ref> * &gt;</type>
+        <definition>std::map&lt;I64, osm::Node*&gt; OSMVisualizer::nodes_</definition>
+        <argsstring></argsstring>
+        <name>nodes_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="60" column="12" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1a764c2f88068ecef895b56348779e8b62" prot="private" static="no" mutable="no">
+        <type>std::map&lt; I64, <ref refid="classosm_1_1Way" kindref="compound">osm::Way</ref> * &gt;</type>
+        <definition>std::map&lt;I64, osm::Way*&gt; OSMVisualizer::ways_</definition>
+        <argsstring></argsstring>
+        <name>ways_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="61" column="12" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1a88cf5ca4a902b5c99786f2f774a21bbf" prot="private" static="no" mutable="no">
+        <type>std::map&lt; I64, <ref refid="classosm_1_1Relation" kindref="compound">osm::Relation</ref> * &gt;</type>
+        <definition>std::map&lt;I64, osm::Relation*&gt; OSMVisualizer::relations_</definition>
+        <argsstring></argsstring>
+        <name>relations_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="62" column="12" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1ae403dd140d0dc812fd4d886a39a95e97" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; visualization_msgs::msg::MarkerArray &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;visualization_msgs::msg::MarkerArray&gt;::SharedPtr OSMVisualizer::marker_array_relations_pub_</definition>
+        <argsstring></argsstring>
+        <name>marker_array_relations_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="64" column="33" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1accb28583089cfa36ab6511584cf16e22" prot="private" static="no" mutable="no">
+        <type>rclcpp::TimerBase::SharedPtr</type>
+        <definition>rclcpp::TimerBase::SharedPtr OSMVisualizer::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="65" column="32" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1ab3757aa77176d4e132731d113ddb463c" prot="private" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr OSMVisualizer::on_set_parameters_callback_handle_</definition>
+        <argsstring></argsstring>
+        <name>on_set_parameters_callback_handle_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="66" column="69" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1ac33740995bf20239d6fcc66bce9458f5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double OSMVisualizer::center_x_</definition>
+        <argsstring></argsstring>
+        <name>center_x_</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="68" column="10" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1acdb3112f251fff21f8c3210755059eb9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double OSMVisualizer::center_y_</definition>
+        <argsstring></argsstring>
+        <name>center_y_</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="69" column="10" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1adf526875ec25dea3d5de5c941880c24e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool OSMVisualizer::data_loaded_</definition>
+        <argsstring></argsstring>
+        <name>data_loaded_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="70" column="8" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1abf00a8e7ff4a78f0a7ee18ca6943f0e2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double OSMVisualizer::line_width_</definition>
+        <argsstring></argsstring>
+        <name>line_width_</name>
+        <initializer>= 0.8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="71" column="10" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1a8388c86ca8d481ca1f5b367e4e22546d" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string OSMVisualizer::frame_id_</definition>
+        <argsstring></argsstring>
+        <name>frame_id_</name>
+        <initializer>= &quot;map_gyor_0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="72" column="15" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1a869d29141997e7853eec4d3de4297391" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string OSMVisualizer::filename_</definition>
+        <argsstring></argsstring>
+        <name>filename_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="73" column="15" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1a5fa7d878138f6ac1db4bd37b7e63607e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool OSMVisualizer::center_map_</definition>
+        <argsstring></argsstring>
+        <name>center_map_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="74" column="8" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOSMVisualizer_1a1cf6c5fe84b7cd12b8ea9734c175487c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double OSMVisualizer::speed_color_max_</definition>
+        <argsstring></argsstring>
+        <name>speed_color_max_</name>
+        <initializer>= 90.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="75" column="10" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classOSMVisualizer_1a81e41bc7ab8f5377890547fbe4d17859" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OSMVisualizer::OSMVisualizer</definition>
+        <argsstring>()</argsstring>
+        <name>OSMVisualizer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="32" column="3" bodyfile="src/OSMVisualizer.cpp" bodystart="25" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classOSMVisualizer_1a83645ca88d4be7414ab20ca5beb2b8d2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>rcl_interfaces::msg::SetParametersResult</type>
+        <definition>rcl_interfaces::msg::SetParametersResult OSMVisualizer::parametersCallback</definition>
+        <argsstring>(const std::vector&lt; rclcpp::Parameter &gt; &amp;parameters)</argsstring>
+        <name>parametersCallback</name>
+        <param>
+          <type>const std::vector&lt; rclcpp::Parameter &gt; &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="38" column="44" bodyfile="src/OSMVisualizer.cpp" bodystart="116" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classOSMVisualizer_1a853d404a1c7beacaf0a7f18be636ae06" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OSMVisualizer::centerCoordinates</definition>
+        <argsstring>()</argsstring>
+        <name>centerCoordinates</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="44" column="8" bodyfile="src/OSMVisualizer.cpp" bodystart="174" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classOSMVisualizer_1a659302d31591e715ef18912f00eb9b20" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float OSMVisualizer::mapval</definition>
+        <argsstring>(float x, float in_min, float in_max, float out_min, float out_max) const</argsstring>
+        <name>mapval</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>in_min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>in_max</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>out_min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>out_max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="47" column="9" bodyfile="src/OSMVisualizer.cpp" bodystart="205" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classOSMVisualizer_1a326fb803a8f8404c3c07da1c096db4c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OSMVisualizer::publishMarkers</definition>
+        <argsstring>()</argsstring>
+        <name>publishMarkers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="50" column="8" bodyfile="src/OSMVisualizer.cpp" bodystart="79" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classOSMVisualizer_1a6bb3fb2ec277bde328dcfac37620f172" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OSMVisualizer::clearData</definition>
+        <argsstring>()</argsstring>
+        <name>clearData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="53" column="8" bodyfile="src/OSMVisualizer.cpp" bodystart="211" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classOSMVisualizer_1aa823092165a58ef64698846748d392ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OSMVisualizer::parseOSMFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>parseOSMFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="57" column="8" bodyfile="src/OSMVisualizer.cpp" bodystart="233" bodyend="361"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>OSMVisualizer</label>
+        <link refid="classOSMVisualizer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>OSMVisualizer</label>
+        <link refid="classOSMVisualizer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/lanelet2_rviz2/OSMVisualizer.hpp" line="30" column="1" bodyfile="include/lanelet2_rviz2/OSMVisualizer.hpp" bodystart="30" bodyend="76"/>
+    <listofallmembers>
+      <member refid="classOSMVisualizer_1a5fa7d878138f6ac1db4bd37b7e63607e" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>center_map_</name></member>
+      <member refid="classOSMVisualizer_1ac33740995bf20239d6fcc66bce9458f5" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>center_x_</name></member>
+      <member refid="classOSMVisualizer_1acdb3112f251fff21f8c3210755059eb9" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>center_y_</name></member>
+      <member refid="classOSMVisualizer_1a853d404a1c7beacaf0a7f18be636ae06" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>centerCoordinates</name></member>
+      <member refid="classOSMVisualizer_1a6bb3fb2ec277bde328dcfac37620f172" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>clearData</name></member>
+      <member refid="classOSMVisualizer_1adf526875ec25dea3d5de5c941880c24e" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>data_loaded_</name></member>
+      <member refid="classOSMVisualizer_1a869d29141997e7853eec4d3de4297391" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>filename_</name></member>
+      <member refid="classOSMVisualizer_1a8388c86ca8d481ca1f5b367e4e22546d" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>frame_id_</name></member>
+      <member refid="classOSMVisualizer_1abf00a8e7ff4a78f0a7ee18ca6943f0e2" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>line_width_</name></member>
+      <member refid="classOSMVisualizer_1a659302d31591e715ef18912f00eb9b20" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>mapval</name></member>
+      <member refid="classOSMVisualizer_1ae403dd140d0dc812fd4d886a39a95e97" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>marker_array_relations_pub_</name></member>
+      <member refid="classOSMVisualizer_1a68a469e0eda03f1e90ee577dfa85868f" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>nodes_</name></member>
+      <member refid="classOSMVisualizer_1ab3757aa77176d4e132731d113ddb463c" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>on_set_parameters_callback_handle_</name></member>
+      <member refid="classOSMVisualizer_1a81e41bc7ab8f5377890547fbe4d17859" prot="public" virt="non-virtual"><scope>OSMVisualizer</scope><name>OSMVisualizer</name></member>
+      <member refid="classOSMVisualizer_1a83645ca88d4be7414ab20ca5beb2b8d2" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>parametersCallback</name></member>
+      <member refid="classOSMVisualizer_1aa823092165a58ef64698846748d392ca" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>parseOSMFile</name></member>
+      <member refid="classOSMVisualizer_1a326fb803a8f8404c3c07da1c096db4c7" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>publishMarkers</name></member>
+      <member refid="classOSMVisualizer_1a88cf5ca4a902b5c99786f2f774a21bbf" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>relations_</name></member>
+      <member refid="classOSMVisualizer_1a1cf6c5fe84b7cd12b8ea9734c175487c" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>speed_color_max_</name></member>
+      <member refid="classOSMVisualizer_1accb28583089cfa36ab6511584cf16e22" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>timer_</name></member>
+      <member refid="classOSMVisualizer_1a764c2f88068ecef895b56348779e8b62" prot="private" virt="non-virtual"><scope>OSMVisualizer</scope><name>ways_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
