@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "way.hpp"
+using I64 = long long;
 
 // exmaple relation
 //   <relation id="12895">
@@ -26,29 +27,72 @@ public:
     Relation& operator=(Relation&&) = default;
     ~Relation() = default;
 
-    // constructor to fill all fields
-    Relation(int id, Way* left, Way* right, std::string type, std::string subtype, int speed_limit, std::string location, bool one_way)
-        : id_(id), left_(left), right_(right), type_(type), subtype_(subtype), speed_limit_(speed_limit), location_(location), one_way_(one_way) {}
+    struct Member {
+        std::string type;
+        std::string role;
+        I64 ref;
+    };
 
-    int id() const { return id_; }
+    // constructor to fill all fields
+    Relation(I64 id) : id_(id) { }
+
+
+    I64 id() const { return id_; }
     Way* left() const { return left_; }
     Way* right() const { return right_; }
     std::string type() const { return type_; }
     std::string subtype() const { return subtype_; }
-    int speed_limit() const { return speed_limit_; }
+    I64 speed_limit() const { return speed_limit_; }
     std::string location() const { return location_; }
     bool one_way() const { return one_way_; }
+
+
+
+
+    // Set the vector of members parsed from the OSM file
+    void set_members(const std::vector<Member>& members) {
+        members_ = members;
+    }
+    
+    // (Optional) Getter for the members vector
+    const std::vector<Member>& members() const {
+        return members_;
+    }
+
+    // Add a tag key/value pair to this relation
+    void add_tag(const std::string &key, const std::string &value) {
+        tags_[key] = value;
+    }
+    
+    // (Optional) Getter for tags
+    const std::map<std::string, std::string>& tags() const {
+        return tags_;
+    }
+    
+    // (Optional) Helper to get a member by role
+    osm::Way* getMemberByRole(const std::string &role, const std::map<I64, osm::Way*>& ways) const {
+        for (const auto &m : members_) {
+            if (m.role == role && ways.count(m.ref)) {
+                return ways.at(m.ref);
+            }
+        }
+        return nullptr;
+    }
     
 private:
-    int id_;
+    I64 id_;
     osm::Way* left_;
     osm::Way* right_;
 
     std::string type_;
     std::string subtype_;
-    int speed_limit_;
+    I64 speed_limit_;
     std::string location_;
     bool one_way_;   
+
+
+    std::vector<Member> members_;
+    std::map<std::string, std::string> tags_;
 
 };
 }; // namespace osm

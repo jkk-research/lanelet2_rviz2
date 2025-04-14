@@ -1,5 +1,6 @@
 #ifndef LANELET2_RVIZ2__NODE_HPP
 #define LANELET2_RVIZ2__NODE_HPP
+using I64 = long long;
 
 // example node:
 // <node id="9209" lat="45.13314197643" lon="16.27647381026">
@@ -19,10 +20,10 @@ public:
     Node& operator=(Node&&) = default;
     ~Node() = default;
 
-    Node(int id, double lat, double lon, double local_x, double local_y, double ele)
+    Node(I64 id, double lat, double lon, double local_x, double local_y, double ele)
         : id_(id), lat_(lat), lon_(lon), local_x_(local_x), local_y_(local_y), ele_(ele) {}
 
-    int id() const { return id_; }
+    I64 id() const { return id_; }
     double lat() const { return lat_; }
     double lon() const { return lon_; }
     double local_x() const { return local_x_; }
@@ -33,7 +34,7 @@ public:
     void set_local_y(double local_y) { local_y_ = local_y; }
 
 private:
-    int id_;
+    I64 id_;
     double lat_;
     double lon_;
     double local_x_;

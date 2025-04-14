@@ -2,6 +2,7 @@
 #define LANELET2_RVIZ2__WAY_HPP
 #include <vector>
 #include "node.hpp"
+using I64 = long long;
 
 // example way:
 //   <way id="11340">
@@ -23,17 +24,29 @@ public:
     Way& operator=(Way&&) = default;
     ~Way() = default;
 
-    Way(int id) : id_(id) {}
+    Way(I64 id) : id_(id) {}
 
-    int id() const { return id_; }
+    I64 id() const { return id_; }
 
     void add_node(osm::Node* node) { nodes_.push_back(node); }
 
     const std::vector<osm::Node*>& nodes() const { return nodes_; }
 
+    // Method to add a tag to this way
+    void add_tag(const std::string &key, const std::string &value) {
+        tags_[key] = value;
+    }
+    
+    // (Optional) Getter to access tags
+    const std::map<std::string, std::string>& tags() const {
+        return tags_;
+    }
+
 private:
-    int id_;
+    I64 id_;
     std::vector<osm::Node*> nodes_;
+
+    std::map<std::string, std::string> tags_;
 };
 
 }; // namespace osm
