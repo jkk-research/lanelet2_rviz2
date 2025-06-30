@@ -14,9 +14,6 @@
 #include "laneletvisualizer/ParkingLot.hpp"
 #include "laneletvisualizer/ParkingSpace.hpp"
 
-#include <fstream> // For file I/O
-
-
 using MarkerArray = visualization_msgs::msg::MarkerArray;
 
 class LaneletVisualizerNode : public rclcpp::Node {
@@ -38,10 +35,13 @@ public:
 
     marker_pub_ = this->create_publisher<MarkerArray>("/lanelet_markers", 10);
 
+    lanelet::ErrorMessages errors;
+
     // Load the map
     lanelet_map_ = lanelet::load(
       osm_file_path_,
-      lanelet::Origin({ 0,0 })
+      lanelet::Origin({ 0,0 }),
+      &errors
     );
 
     lanelets_ = &lanelet_map_->laneletLayer;
@@ -63,7 +63,7 @@ public:
 
       }
       else {
-        RCLCPP_ERROR(this->get_logger(), "OSM Map is likely unsupported. Contact dev. \n");
+        RCLCPP_ERROR(this->get_logger(), "OSM Map is likely unsupported. Contact dev. {NODES DON'T HAVE local_x || local_y}.\nNOT GONNA KEEP TRYING.\n");
         rclcpp::shutdown();
         exit(EXIT_FAILURE);
       }
@@ -84,9 +84,9 @@ public:
           point.basicPoint().y() = local_y; // Override the y coordinate
         }
         else {
-          RCLCPP_ERROR(this->get_logger(), "OSM Map is likely unsupported. Contact dev. \n");
-          rclcpp::shutdown();
-          exit(EXIT_FAILURE);
+          RCLCPP_ERROR(this->get_logger(), "OSM Map is likely unsupported. Contact dev. {POLYGONS DON'T HAVE local_x || local_y}\nGONNA KEEP TRYING.\n");
+          // rclcpp::shutdown();
+          // exit(EXIT_FAILURE);
         }
       }
     }
@@ -104,9 +104,9 @@ public:
           point.basicPoint().y() = local_y; // Override the y coordinate
         }
         else {
-          RCLCPP_ERROR(this->get_logger(), "OSM Map is likely unsupported. Contact dev. \n");
-          rclcpp::shutdown();
-          exit(EXIT_FAILURE);
+          RCLCPP_ERROR(this->get_logger(), "OSM Map is likely unsupported. Contact dev. {LINESTRINGS DON'T HAVE local_x || local_y} \nGONNA KEEP TRYING.\n");
+          // rclcpp::shutdown();
+          // exit(EXIT_FAILURE);
         }
       }
     }
