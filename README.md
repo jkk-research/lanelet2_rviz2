@@ -17,6 +17,7 @@
     - Blue for medium speeds.
     - Red for higher speeds.
   - One-way relations are marked with dynamically positioned **direction arrows**.
+  - Parking lots are parking spaces visualized as filled areas.
 - **Dynamic Parameter Reconfiguration**: Modify visualization settings like `line_width`, `frame_id`, or `speed_color_max` during runtime without restarting the node.
 - **Reusable Data Structures**: Efficiently processes nodes, ways, and relations.
 
@@ -28,23 +29,29 @@
 - `/osm_relations` (visualization_msgs/msg/MarkerArray):
   Marker array for relations (left and right ways).
 - `/osm_speed` (visualization_msgs/msg/MarkerArray):
-  Marker array for relation areas, visualized with speed gradient colors.
+  Marker array for relation areas, visualized with speed gradient colors. --TODO (currently only one publisher)
 - `/osm_one_way_arrows` (visualization_msgs/msg/MarkerArray):
-  Marker array for one-way direction arrows.
+  Marker array for one-way direction arrows. --TODO
 
 ## Parameters
 
 ### Node Parameters
 - `osm_filename` (string): Path to the `.osm` file to process.
 - `frame_id` (string): The coordinate frame for visualization markers (default: `"map_gyor_0"`).
-- `line_width` (double): Width of the visualization lines (default: `0.8`).
-- `center_map` (bool): Center the map in RViz2 (default: `false`).
 - `speed_color_max` (double): Maximum speed limit for gradient visualization (default: `90.0`).
 
 ## Usage
 
 ### 1. Build the Project
-Make sure your ROS 2 workspace is set up. Clone this repository into the `src` directory and build it:
+Make sure your ROS 2 workspace is set up. 
+
+Install the necessary dependencies:
+
+```bash
+sudo apt install `sudo apt install ros-humble-lanelet2`
+```
+
+Clone this repository into the `src` directory and build it:
 
 ```bash
 cd ~/ros2_ws/src && git clone https://github.com/jkk-research/lanelet2_rviz2
@@ -115,5 +122,5 @@ ros2 run pcd_publisher pcd_publisher --ros-args -p pcd_file_path:=/home/dev/auto
 ```
 
 ## Acknowledgments
-- **[RapidXML](https://rapidxml.sourceforge.net/)** is used for parsing the OSM files.
+- **[Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2)** is used for parsing the OSM files.
 - **[Earcut](https://github.com/mapbox/earcut.hpp)** is used for polygon triangulation, enabling visualization of filled areas in RViz2.
