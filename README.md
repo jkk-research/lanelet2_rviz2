@@ -121,6 +121,9 @@ ros2 run pcl_ros pcd_to_pointcloud --ros-args -p file_name:=/home/he/dlio_map2.p
 ros2 run pcd_publisher pcd_publisher --ros-args -p pcd_file_path:=/home/dev/autoware_map/gyor_campus/pointcloud_map.pcd -p topic_name:=/points_campus -p frame_id:=map_gyor_0
 ```
 
+## Troubleshooting
+The software was designed to work in our workflow, which mainly relies on maps authored or edited with the [Vector Map Builder of TIER4](https://tools.tier4.jp/). It will likely work with Lanelet2 maps authored or written by different software, but if you run into unsupported map errors, try loading and exporting your map in the TIER4 map editor. 
+
 ## Acknowledgments
 - **[Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2)** is used for parsing the OSM files.
 - **[Earcut](https://github.com/mapbox/earcut.hpp)** is used for polygon triangulation, enabling visualization of filled areas in RViz2.
