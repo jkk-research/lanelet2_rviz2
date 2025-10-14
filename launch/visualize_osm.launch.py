@@ -7,8 +7,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         Node(
-            package='laneletvisualizer',
-            executable='laneletviz',
+            package='lanelet2_rviz2',
+            executable='lanelet2_rviz2',
             output='screen',
             parameters=[
                 {"frame_id": "map"},

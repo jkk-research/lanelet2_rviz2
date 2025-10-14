@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(laneletvisualizer)
+project(lanelet2_rviz2)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -18,19 +18,19 @@ find_package(visualization_msgs REQUIRED)
 # -----------------------------------------------------------------------------
 # Executable
 # -----------------------------------------------------------------------------
-add_executable(laneletviz src/laneletviz.cpp)
+add_executable(lanelet2_rviz2 src/laneletviz.cpp)
 
 # include your own headers
-target_include_directories(laneletviz PUBLIC
+target_include_directories(lanelet2_rviz2 PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
 
 # require C++17
-target_compile_features(laneletviz PUBLIC cxx_std_17)
+target_compile_features(lanelet2_rviz2 PUBLIC cxx_std_17)
 
 # Link against ROS 2 and Lanelet2
-ament_target_dependencies(laneletviz
+ament_target_dependencies(lanelet2_rviz2
   rclcpp
   lanelet2_core
   lanelet2_io
@@ -41,7 +41,7 @@ ament_target_dependencies(laneletviz
 # -----------------------------------------------------------------------------
 # Install
 # -----------------------------------------------------------------------------
-install(TARGETS laneletviz
+install(TARGETS lanelet2_rviz2
   DESTINATION lib/${PROJECT_NAME}
 )
 
