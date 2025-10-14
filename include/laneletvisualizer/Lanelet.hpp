@@ -103,13 +103,13 @@ namespace laneviz {
       }
 
       // 3) build polygon (left + reverse(right))
-      geometry_msgs::msg::PolygonStamped poly;
+      PolygonStamped poly;
       poly.header.frame_id = frame_id;
       poly.header.stamp = stamp;
 
       // add left
       for (auto& p3 : leftBound()) {
-        geometry_msgs::msg::Point32 p;
+        Point32 p;
         p.x = p3.x();
         p.y = p3.y();
         p.z = p3.z();
@@ -121,7 +121,7 @@ namespace laneviz {
         auto pts = rightBound();
         for (size_t idx = pts.size(); idx-- > 0;) {
           const auto& p3 = pts[idx];
-          geometry_msgs::msg::Point32 p;
+          Point32 p;
           p.x = p3.x();
           p.y = p3.y();
           p.z = p3.z();
