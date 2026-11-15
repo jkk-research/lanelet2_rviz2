@@ -47,7 +47,7 @@ All of them can be changed at runtime.
 | `speed_color_max` | double | `90.0` | Speed limit that maps to the "fast" end of the tint. |
 | `line_width` | double | `0.15` | Lane boundary width in metres. |
 | `dash_length` / `dash_gap` | double | `1.5` / `1.5` | Dash pattern of crossable boundaries in metres. |
-| `use_elevation` | bool | `true` | `false` flattens the map to z = 0. |
+| `use_elevation` | bool | `false` | `false` draws the map flat at z = 0, which keeps the layers cleanly stacked. `true` uses the mapped heights; where map elements disagree in height, the road can cover markings. |
 
 ## Usage
 

@@ -29,7 +29,7 @@ Visualization Manager:
       Offset:
         X: 75
         Y: 75
-        Z: -3
+        Z: -0.1
       Plane: XY
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
@@ -139,7 +139,7 @@ Visualization Manager:
         Focal Point:
           X: 140
           Y: 145
-          Z: -2
+          Z: 0
         Focal Shape Fixed Size: true
         Focal Shape Size: 0.05
         Name: Perspective (crosswalks)

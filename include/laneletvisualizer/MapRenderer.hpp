@@ -32,7 +32,11 @@ namespace laneviz {
     double dash_length{ 1.5 };       ///< painted part of a dashed boundary [m]
     double dash_gap{ 1.5 };          ///< gap of a dashed boundary [m]
     double speed_color_max{ 90.0 };  ///< speed limit mapped to the "fast" colour
-    bool use_elevation{ true };      ///< false: flatten the map to z = 0
+    /// true: draw at the mapped height. Off by default, because map elements
+    /// often disagree in height by more than the layer spacing (a crosswalk
+    /// mapped a few cm below the lanes it crosses), and the road then covers
+    /// the paint.
+    bool use_elevation{ false };
 
     Color asphalt{ Color::hex(0x343A46) };
     Color marking{ Color::hex(0xE9ECF1) };
