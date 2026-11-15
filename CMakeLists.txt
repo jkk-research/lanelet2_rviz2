@@ -12,13 +12,12 @@ find_package(ament_cmake REQUIRED)                                       # :cont
 find_package(rclcpp REQUIRED)                                           # your ROS client library
 find_package(lanelet2_core REQUIRED)                                    # core Lanelet2 types :contentReference[oaicite:4]{index=4}
 find_package(lanelet2_io REQUIRED)                                      # map I/O (.osm) :contentReference[oaicite:5]{index=5}
-find_package(lanelet2_projection REQUIRED)                              # coordinate projection :contentReference[oaicite:6]{index=6}
 find_package(visualization_msgs REQUIRED)
 
 # -----------------------------------------------------------------------------
 # Executable
 # -----------------------------------------------------------------------------
-add_executable(lanelet2_rviz2 src/laneletviz.cpp)
+add_executable(lanelet2_rviz2 src/laneletviz.cpp src/MapRenderer.cpp)
 
 # include your own headers
 target_include_directories(lanelet2_rviz2 PUBLIC
@@ -34,7 +33,6 @@ ament_target_dependencies(lanelet2_rviz2
   rclcpp
   lanelet2_core
   lanelet2_io
-  lanelet2_projection
   visualization_msgs
 )
 
@@ -45,8 +43,9 @@ install(TARGETS lanelet2_rviz2
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY 
+install(DIRECTORY
   launch
+  etc
   DESTINATION share/${PROJECT_NAME})
 
 # -----------------------------------------------------------------------------

@@ -1,0 +1,161 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Lanelet2 map1
+        - /Lanelet2 map1/Namespaces1
+      Splitter Ratio: 0.5
+    Tree Height: 600
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.15
+      Cell Size: 50
+      Class: rviz_default_plugins/Grid
+      Color: 120; 130; 150
+      Enabled: false
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid (50 m)
+      Normal Cell Count: 0
+      Offset:
+        X: 75
+        Y: 75
+        Z: -3
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: false
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Lanelet2 map
+      Namespaces:
+        crosswalk: true
+        direction: true
+        junction_paths: true
+        lane_lines: true
+        parking: true
+        road: true
+        speed_limit: false
+        stop_lines: true
+        traffic_signs: true
+        turn_arrows: true
+      Topic:
+        Depth: 1
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /lanelet_markers
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 27; 30; 36
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+      Line color: 242; 193; 78
+    - Class: rviz_default_plugins/SetInitialPose
+      Covariance x: 0.25
+      Covariance y: 0.25
+      Covariance yaw: 0.06853891909122467
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+    - Class: rviz_default_plugins/PublishPoint
+      Single click: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /clicked_point
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Angle: 0
+      Class: rviz_default_plugins/TopDownOrtho
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.01
+      Scale: 2.3
+      Target Frame: <Fixed Frame>
+      Value: TopDownOrtho (rviz_default_plugins)
+      X: 74
+      Y: 76
+    Saved:
+      - Angle: 0
+        Class: rviz_default_plugins/TopDownOrtho
+        Name: Whole map
+        Near Clip Distance: 0.01
+        Scale: 2.3
+        Target Frame: <Fixed Frame>
+        Value: TopDownOrtho (rviz_default_plugins)
+        X: 74
+        Y: 76
+      - Angle: 0
+        Class: rviz_default_plugins/TopDownOrtho
+        Name: Main junction
+        Near Clip Distance: 0.01
+        Scale: 18
+        Target Frame: <Fixed Frame>
+        Value: TopDownOrtho (rviz_default_plugins)
+        X: 48
+        Y: 138
+      - Class: rviz_default_plugins/Orbit
+        Distance: 90
+        Focal Point:
+          X: 140
+          Y: 145
+          Z: -2
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05
+        Name: Perspective (crosswalks)
+        Near Clip Distance: 0.5
+        Pitch: 0.75
+        Target Frame: <Fixed Frame>
+        Value: Orbit (rviz_default_plugins)
+        Yaw: 3.9
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1050
+  Hide Left Dock: false
+  Hide Right Dock: true
+  Views:
+    collapsed: true
+  Width: 1100
+  X: 80
+  Y: 40
