@@ -2,8 +2,12 @@
 
 **lanelet2_rviz2** is a ROS 2 node that draws a Lanelet2 (`.osm`) map in RViz2 as a road map: asphalt, lane markings, zebra crossings, turn arrows and stop lines.
 
-[![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
-[![Static Badge](https://img.shields.io/badge/ROS_2-Jazzy-34aec5)](https://docs.ros.org/en/jazzy/)
+<p>
+  <img alt="ROS 2: Humble" src="https://img.shields.io/badge/ros2-humble-34aec5?style=flat-square&logo=ros">
+  <img alt="ROS 2: Jazzy" src="https://img.shields.io/badge/ros2-jazzy-34aec5?style=flat-square&logo=ros">
+  <img alt="C++17" src="https://img.shields.io/badge/C%2B%2B-17-00599c?style=flat-square">
+  <a href="LICENSE"><img alt="License: BSD 3-Clause License" src="https://img.shields.io/badge/License-BSD--3--Clause-red?style=flat-square"></a>
+</p>
 
 ## Features
 - **Lane boundaries** are solid, or **dashed where a lane change is allowed** (`subtype=dashed` or `lane_change=yes`). Each boundary is drawn once, even if two lanelets share it or carry their own copy, and the dash pattern is fitted to the line so neighbouring lines stay in step.
@@ -15,6 +19,10 @@
 - The map is rendered **once** into ten large markers (one per layer) and published latched; changing a parameter at runtime redraws it.
 
 Every layer is its own marker namespace, so it can be switched on and off under *Namespaces* in the RViz `MarkerArray` display:
+
+![img03](etc/lanelet_visu03.png)
+![img04](etc/lanelet_visu04.png)
+
 
 | Namespace | Content |
 |---|---|
@@ -29,7 +37,6 @@ Every layer is its own marker namespace, so it can be switched on and off under 
 | `traffic_signs` | stop signs and other signs |
 | `parking` | parking lots and spaces |
 
-![img01](etc/lanelet_visu01.png)
 
 ## Topics
 

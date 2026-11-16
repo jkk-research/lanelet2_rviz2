@@ -16,7 +16,9 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
             'osm_file_path',
-            default_value='/mnt/c/bag/zala/ZalaZone_SmartCityZone_lanelet2_map_2025_05_21.osm',
+            # default_value='/mnt/c/bag/zala/ZalaZone_SmartCityZone_lanelet2_map_2025_05_21.osm',
+            # default_value='/mnt/c/bag/jkk_dataset_04_campus_2026_07_20/lanelet2_map_2026_07_20.osm', # download from https://zenodo.org/records/21871328
+            default_value='/mnt/c/bag/zala/ZalaZone_SmartCityZone_lanelet2_map_2025_05_21.osm', # download from https://github.com/jkk-research/lanelet2_maps
             description='Lanelet2 .osm map to visualize'),
         DeclareLaunchArgument(
             'frame_id', default_value='map',
